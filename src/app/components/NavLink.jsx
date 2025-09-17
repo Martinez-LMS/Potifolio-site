@@ -5,6 +5,9 @@ import useActiveSection from "../hooks/useActiveSection";
 const NavLink = ({ href, title }) => {
   const activeSection = useActiveSection();
   const isActive = href === `#${activeSection}`;
+  
+  // Debug para verificar se está funcionando
+  console.log('Active section:', activeSection, 'Current href:', href, 'Is active:', isActive);
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}

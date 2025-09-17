@@ -1,30 +1,36 @@
 import { useState, useEffect } from 'react';
 
 const useActiveSection = () => {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset para ativar antes de chegar na seção
+      const sections = ['about', 'skills', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 200; // Offset maior para melhor detecção
+      
+      let currentSection = 'about'; // Seção padrão
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+          const { offsetTop } = element;
+          if (scrollPosition >= offsetTop) {
+            currentSection = section;
           }
         }
       }
+
+      setActiveSection(currentSection);
     };
 
     // Verificar seção ativa no carregamento inicial
-    handleScroll();
+    const timer = setTimeout(handleScroll, 100);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   return activeSection;

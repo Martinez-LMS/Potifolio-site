@@ -51,7 +51,7 @@ const Footer = () => {
                 <span className="relative z-10">Sobre Mim</span>
               </Link>
               <Link href="/#skills" className="group block text-light-600 hover:text-primary-600 transition-all duration-300 text-base font-medium px-3 py-2 rounded-lg hover:bg-primary-50 hover:shadow-md">
-                <span className="relative z-10">Habilidades</span>
+                <span className="relative z-10">Tecnologias</span>
               </Link>
               <Link href="/#projects" className="group block text-light-600 hover:text-primary-600 transition-all duration-300 text-base font-medium px-3 py-2 rounded-lg hover:bg-primary-50 hover:shadow-md">
                 <span className="relative z-10">Projetos</span>

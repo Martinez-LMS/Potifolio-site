@@ -13,7 +13,7 @@ const navLinks = [
     path: "#about",
   },
   {
-    title: "Habilidades",
+    title: "Tecnologias",
     path: "#skills",
   },
   {
