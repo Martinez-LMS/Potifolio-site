@@ -7,12 +7,12 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Google Drive Upload files",
-    description: "Api para Uploads de imagens no Drive, com a utilização de GoogleApi",
-    image: "/images/projects/googleDrive.png",
-    tag: ["All","Back"],
-    gitUrl: "https://github.com/Martinez-LMS/CloudStorageC-",
-    previewUrl: "https://github.com/Martinez-LMS/CloudStorageC-",
+    title: "Barbearia Polidoro",
+    description: "Site institucional moderno para barbearia com sistema de agendamento, galeria de trabalhos e apresentação de serviços",
+    image: "/images/projects/barbeariaPolidoro.png",
+    tag: ["All","Front"],
+    gitUrl: "https://github.com/Martinez-LMS/barbearia-polidoro",
+    previewUrl: "https://barbeariapolidoro.com/",
   },
   {
     id: 2,
@@ -81,10 +81,10 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+      <h2 className="text-center text-4xl font-bold text-light-900 mt-4 mb-8 md:mb-12">
         Meus Projetos
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+      <div className="text-light-900 flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
           name="All"
