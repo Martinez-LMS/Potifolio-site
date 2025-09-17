@@ -4,7 +4,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
-const toEmail = "leo.ooosla@gmail.com"; // Email fixo para receber as mensagens
+const toEmail = "xxxxxartigo157xxxxxx@gmail.com"; // Email fixo para receber as mensagens
 
 export async function POST(req) {
   try {
