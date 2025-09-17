@@ -101,7 +101,7 @@ const SkillsSection = () => {
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -127,7 +127,7 @@ const SkillsSection = () => {
                 </div>
 
                 {/* Skills List */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -135,10 +135,10 @@ const SkillsSection = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: skillIndex * 0.1 }}
                       viewport={{ once: true }}
-                      className="group/skill flex items-center gap-3 p-4 bg-light-100 border border-light-300 rounded-xl hover:border-primary-500/50 hover:bg-primary-50/50 transition-all duration-300"
+                      className="group/skill flex items-center gap-3 p-3 sm:p-4 bg-light-100 border border-light-300 rounded-xl hover:border-primary-500/50 hover:bg-primary-50/50 transition-all duration-300"
                     >
-                      <span className="text-2xl">{skill.icon}</span>
-                      <span className="font-semibold text-light-900 group-hover/skill:text-primary-600 transition-colors duration-300">{skill.name}</span>
+                      <span className="text-xl sm:text-2xl flex-shrink-0">{skill.icon}</span>
+                      <span className="font-semibold text-light-900 group-hover/skill:text-primary-600 transition-colors duration-300 text-sm sm:text-base whitespace-nowrap overflow-hidden text-ellipsis">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
