@@ -212,7 +212,7 @@ const HeroSection = () => {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-glow"
+                    className="absolute -top-6 -right-2 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-glow"
                   >
                     ⚡
                   </motion.div>
