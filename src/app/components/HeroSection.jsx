@@ -33,7 +33,7 @@ const HeroSection = () => {
             className="mb-6"
           >
             <span className="inline-block px-8 py-4 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-lg font-semibold backdrop-blur-sm">
-              👋 Olá, bem-vindo ao meu portfólio
+              Olá, bem-vindo ao meu portfólio
             </span>
           </motion.div>
 
@@ -181,14 +181,22 @@ const HeroSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-center"
                       >
-                        <div className="text-4xl mb-4">👨‍💻</div>
+                        <div className="text-4xl mb-4"></div>
                         <h3 className="text-xl lg:text-2xl font-bold mb-3">Sobre Mim</h3>
-                        <div className="space-y-2 text-sm lg:text-base">
-                          <p>🎯 <strong>Idade:</strong> 22 anos</p>
-                          <p>📍 <strong>Localização:</strong> Curitiba, PR</p>
-                          <p>💪 <strong>Paixão:</strong> Treinar e código</p>
-                          <p>⚽ <strong>Hobby:</strong> Games e futebol</p>
-                          <p>🚀 <strong>Objetivo:</strong> Impactar o mundo</p>
+                        <br />
+                        <div className="space-y-3 text-sm lg:text-base">
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
+                            <p className="text-white/90"><strong>Idade:</strong> 22 anos</p>
+                            <p className="text-white/90"><strong>Localização:</strong> Curitiba, PR</p>
+                          </div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
+                            <p className="text-white/90"><strong>Paixão:</strong> Desenvolver soluções</p>
+                            <p className="text-white/90"><strong>Hobby:</strong> Academia e games</p>
+                          </div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
+                            <p className="text-white/90"><strong>Objetivo:</strong> Impactar o mundo</p>
+                            <p className="text-white/90"><strong>Experiência:</strong> 2+ anos</p>
+                          </div>
                         </div>
                         <motion.div
                           animate={{ y: [0, -5, 0] }}

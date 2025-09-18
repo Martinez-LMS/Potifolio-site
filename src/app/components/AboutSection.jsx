@@ -1,6 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { 
+  GlobeAltIcon, 
+  CodeBracketIcon, 
+  TrophyIcon, 
+  DevicePhoneMobileIcon, 
+  RocketLaunchIcon, 
+  CloudIcon,
+  StarIcon
+} from "@heroicons/react/24/outline";
 
 const AboutSection = () => {
   const certificates = [
@@ -8,42 +17,42 @@ const AboutSection = () => {
       title: "Certificado de Desenvolvimento Web Completo",
       url: "https://www.udemy.com/certificate/UC-c9607b2d-884f-4618-80f0-44b957be98d6/",
       platform: "Udemy",
-      icon: "🌐",
+      icon: <GlobeAltIcon className="w-6 h-6" />,
       year: "2023"
     },
     {
       title: "Certificação em Desenvolvimento de Aplicações React",
       url: "https://www.udemy.com/certificate/UC-aa515fa6-6f81-4cd4-824b-00312b79b729/",
       platform: "Udemy",
-      icon: "⚛️",
+      icon: <CodeBracketIcon className="w-6 h-6" />,
       year: "2023"
     },
     {
       title: "JavaScript Algorithms and Data Structures",
       url: "#",
       platform: "freeCodeCamp",
-      icon: "🏆",
+      icon: <TrophyIcon className="w-6 h-6" />,
       year: "2024"
     },
     {
       title: "Responsive Web Design",
       url: "#",
       platform: "freeCodeCamp",
-      icon: "📱",
+      icon: <DevicePhoneMobileIcon className="w-6 h-6" />,
       year: "2024"
     },
     {
       title: "Node.js Backend Development",
       url: "#",
       platform: "Coursera",
-      icon: "🚀",
+      icon: <RocketLaunchIcon className="w-6 h-6" />,
       year: "2024"
     },
     {
       title: "AWS Cloud Practitioner",
       url: "#",
       platform: "Amazon Web Services",
-      icon: "☁️",
+      icon: <CloudIcon className="w-6 h-6" />,
       year: "2024"
     }
   ];
@@ -73,7 +82,7 @@ const AboutSection = () => {
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium backdrop-blur-sm">
-              👨‍💻 Sobre mim
+              Sobre mim
             </span>
           </motion.div>
 
@@ -116,9 +125,6 @@ const AboutSection = () => {
           >
             <div className="bg-gradient-to-r from-primary-500/10 to-secondary-500/10 border border-primary-500/20 rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-500">
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  🎓
-                </div>
                 <div className="flex-1">
                   <h4 className="text-2xl font-bold text-light-900 mb-2">Análise e Desenvolvimento de Sistemas</h4>
                   <p className="text-primary-600 text-lg font-semibold mb-1">Universidade Positivo (UP)</p>
