@@ -1,19 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
 const HeroSection = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
   return (
-    <section className="lg:py-20 relative overflow-hidden">
+    <section ref={ref} className="lg:py-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-secondary-50/30"></div>
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-200/20 rounded-full blur-3xl animate-float"></div>
@@ -22,13 +24,13 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-6"
           >
@@ -40,7 +42,7 @@ const HeroSection = () => {
           <h1 className="text-light-900 mb-6 text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="block"
             >
@@ -50,7 +52,7 @@ const HeroSection = () => {
             </motion.span>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="min-h-[1.2em] flex items-center"
             >
@@ -76,7 +78,7 @@ const HeroSection = () => {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-light-600 text-lg sm:text-xl mb-8 lg:text-2xl max-w-2xl leading-relaxed"
           >
@@ -86,7 +88,7 @@ const HeroSection = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
@@ -120,7 +122,7 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="col-span-4 place-self-center mt-8 lg:mt-0"
         >
@@ -184,27 +186,20 @@ const HeroSection = () => {
                         <div className="text-4xl mb-4"></div>
                         <h3 className="text-xl lg:text-2xl font-bold mb-3">Sobre Mim</h3>
                         <br />
-                        <div className="space-y-3 text-sm lg:text-base">
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
-                            <p className="text-white/90"><strong>Idade:</strong> 22 anos</p>
-                            <p className="text-white/90"><strong>Localização:</strong> Curitiba, PR</p>
+                        <div className="space-y-2 text-sm lg:text-base">
+                          <div className="space-y-1">
+                            <p className="text-white/95 text-center"><span className="text-white/70">Idade:</span> <span className="font-semibold">22 anos</span></p>
+                            <p className="text-white/95 text-center"><span className="text-white/70">Localização:</span> <span className="font-semibold">Curitiba, PR</span></p>
                           </div>
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
-                            <p className="text-white/90"><strong>Paixão:</strong> Desenvolver soluções</p>
-                            <p className="text-white/90"><strong>Hobby:</strong> Academia e games</p>
+                          <div className="space-y-1">
+                            <p className="text-white/95 text-center"><span className="text-white/70">Paixão:</span> <span className="font-semibold">Desenvolver soluções</span></p>
+                            <p className="text-white/95 text-center"><span className="text-white/70">Hobby:</span> <span className="font-semibold">Academia e games</span></p>
                           </div>
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 h-20 flex flex-col justify-center">
-                            <p className="text-white/90"><strong>Objetivo:</strong> Impactar o mundo</p>
-                            <p className="text-white/90"><strong>Experiência:</strong> 2+ anos</p>
+                          <div className="space-y-1">
+                            <p className="text-white/95 text-center"><span className="text-white/70">Objetivo:</span> <span className="font-semibold">Impactar o mundo</span></p>
+                            <p className="text-white/95 text-center"><span className="text-white/70">Experiência:</span> <span className="font-semibold">2+ anos</span></p>
                           </div>
                         </div>
-                        <motion.div
-                          animate={{ y: [0, -5, 0] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="mt-4 text-xs opacity-80"
-                        >
-                          Clique novamente para voltar
-                        </motion.div>
                       </motion.div>
                     </div>
                   </div>
@@ -252,7 +247,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg"
+                className="absolute -bottom-8 right-4 lg:bottom-4 lg:right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg"
               >
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                 Disponível
@@ -279,9 +274,9 @@ const HeroSection = () => {
           {/* About Me Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 text-center"
+            className="mt-12 lg:mt-8 text-center"
           >
             <motion.button
               onClick={handleFlip}

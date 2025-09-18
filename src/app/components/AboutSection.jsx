@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { 
   GlobeAltIcon, 
   CodeBracketIcon, 
@@ -12,6 +12,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 const AboutSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
   const certificates = [
     {
       title: "Certificado de Desenvolvimento Web Completo",
@@ -58,7 +60,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="text-light-900 py-20 relative overflow-hidden" id="about">
+    <section ref={ref} className="text-light-900 py-20 relative overflow-hidden" id="about">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-secondary-50/30"></div>
       <div className="absolute top-0 left-0 w-full h-full opacity-20" style={{
@@ -69,16 +71,14 @@ const AboutSection = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium backdrop-blur-sm">
@@ -92,9 +92,8 @@ const AboutSection = () => {
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
             className="text-light-600 text-lg lg:text-xl leading-relaxed mb-12 max-w-4xl mx-auto"
           >
             Sou um desenvolvedor full-stack apaixonado por criar soluções inovadoras que moldam o futuro digital. 
@@ -106,13 +105,12 @@ const AboutSection = () => {
         {/* Education Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
           className="mb-16"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-light-900 mb-4">🎓 Formação Acadêmica</h3>
+            <h3 className="text-3xl font-bold text-light-900 mb-4"> Formação Acadêmica</h3>
             <p className="text-light-600 text-lg">Minha jornada educacional em tecnologia</p>
           </div>
 
@@ -142,13 +140,12 @@ const AboutSection = () => {
         {/* Certificates Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
           className="mb-16"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-light-900 mb-4">🏆 Certificações</h3>
+            <h3 className="text-3xl font-bold text-light-900 mb-4"> Certificações</h3>
             <p className="text-light-600 text-lg">Certificados e cursos que validam meu conhecimento</p>
           </div>
 
@@ -160,9 +157,8 @@ const AboutSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="group block bg-white/80 backdrop-blur-sm border border-light-300 rounded-2xl p-6 hover:border-primary-500/50 hover:bg-primary-50/50 transition-all duration-300 shadow-card hover:shadow-card-hover"
               >
                 <div className="flex items-start gap-4">
@@ -198,7 +194,7 @@ const AboutSection = () => {
         >
           <div className="bg-gradient-to-r from-primary-50 to-secondary-50 border border-primary-200 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-light-900 mb-4">
-              🚀 Experiência Prática
+               Experiência Prática
             </h3>
             <p className="text-light-600 text-lg leading-relaxed max-w-4xl mx-auto">
               Com mais de <span className="text-primary-600 font-semibold">2 anos de experiência</span> em desenvolvimento, 

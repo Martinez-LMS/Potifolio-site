@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import WhatsappIcon from "../../../public/whatsapp-logo.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +54,7 @@ const EmailSection = () => {
 
   return (
     <section
+      ref={ref}
       id="contact"
       className="py-20 relative overflow-hidden"
     >
@@ -65,20 +68,18 @@ const EmailSection = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
             className="mb-6"
           >
             <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium backdrop-blur-sm">
-              📧 Vamos conversar?
+               Vamos conversar?
             </span>
           </motion.div>
 
@@ -88,9 +89,8 @@ const EmailSection = () => {
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
             className="text-light-600 text-lg lg:text-xl leading-relaxed mb-12 max-w-2xl mx-auto"
           >
             Pronto para transformar sua ideia em realidade? 
@@ -102,9 +102,8 @@ const EmailSection = () => {
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
             className="space-y-8"
           >
             <div>
@@ -179,9 +178,8 @@ const EmailSection = () => {
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
             className="relative"
           >
             {/* Background glow */}

@@ -3,15 +3,27 @@ import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({ 
+  imgUrl, 
+  title, 
+  description, 
+  gitUrl, 
+  previewUrl, 
+  currentIndex, 
+  onOpenModal 
+}) => {
+  const openModal = () => onOpenModal(currentIndex);
+
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group"
+      className="group cursor-pointer"
       whileHover={{ y: -10, scale: 1.02 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
+      onClick={openModal}
     >
       <div
         className="h-52 md:h-72 rounded-t-xl relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-500"
@@ -37,6 +49,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <Link
                 href={gitUrl}
@@ -51,6 +64,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
               whileHover={{ scale: 1.1, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <Link
                 href={previewUrl}
@@ -122,6 +136,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
         </motion.div>
       </motion.div>
     </motion.div>
+    </>
   );
 };
 
