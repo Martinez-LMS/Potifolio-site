@@ -149,7 +149,7 @@ const HeroSection = () => {
                   <div className="relative rounded-full bg-white w-full h-full border-4 border-primary-200 shadow-card hover:shadow-glow transition-all duration-500 overflow-hidden">
                     <div className="absolute inset-0 bg-white rounded-full"></div>
                     <Image
-                      src="/images/FotoPerfil.jpg"
+                      src="/images/Perfil nova.jpg"
                       alt="Leonardo - Full Stack Developer"
                       className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-full object-cover w-full h-full"
                       width={500}
