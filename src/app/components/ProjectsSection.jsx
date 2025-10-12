@@ -27,12 +27,12 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "SneakStreet",
-    description: "Projeto nextJS com aplicação de multiplos filtros de pesquisa",
-    image: "/images/projects/SneakStreet.png",
-    tag: ["All", "Front"],
-    gitUrl: "https://sneaker-e-commerce-rjlt9zyxl-Leonardo-projects.vercel.app/",
-    previewUrl: "https://github.com/Martinez-LMS/SneakerE-commerce",
+    title: "Q&A System",
+    description: "Sistema completo de perguntas e respostas com autenticação, votação, categorização e sistema de reputação de usuários",
+    image: "/images/projects/projetoQA.png",
+    tag: ["All", "Front", "Back"],
+    gitUrl: "https://github.com/Martinez-LMS/Projeto-Full-Stack.git",
+    previewUrl: "https://qasyystem.netlify.app/",
   },
   // {
   //   id: 4,
