@@ -1,29 +1,18 @@
 "use client";
-
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { motion } from "framer-motion";
+import { FaCode, FaRocket } from "react-icons/fa";
 
 const navLinks = [
-  {
-    title: "Sobre",
-    path: "#about",
-  },
-  {
-    title: "Tecnologias",
-    path: "#skills",
-  },
-  {
-    title: "Projetos",
-    path: "#projects",
-  },
-  {
-    title: "Contato",
-    path: "#contact",
-  },
+  { title: "Sobre", path: "#about" },
+  { title: "Experiências", path: "#experience" },
+  { title: "Tecnologias", path: "#skills" },
+  { title: "Projetos", path: "#projects" },
+  { title: "Contato", path: "#contact" },
 ];
 
 const Navbar = () => {
@@ -34,92 +23,74 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed mx-auto top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-md border-b border-primary-200 shadow-lg' 
+          ? 'bg-white border-b border-light-200 shadow-lg' 
           : 'bg-transparent'
       }`}
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-50/20 via-transparent to-secondary-50/20 opacity-50"></div>
-      
-      <div className="relative flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-3">
-        {/* Logo/Brand Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center gap-3"
-        >
-          <div className="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center shadow-glow">
-            <span className="text-white font-bold text-lg">&lt;/&gt;</span>
-          </div>
-          <div className="hidden sm:block">
-            <h1 className="text-xl font-bold text-light-900">Leonardo</h1>
-            <p className="text-xs text-light-500">Full-Stack Developer</p>
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="flex items-center gap-3 group">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center text-white shadow-lg transition-all duration-300"
+            >
+              <FaCode className="w-6 h-6" />
+            </motion.div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-black text-light-900 group-hover:text-primary-500 transition-colors duration-300">
+                Leonardo Martinez
+              </h1>
+              <p className="text-xs text-light-500 font-bold">Full-Stack Developer</p>
+            </div>
+          </Link>
 
-        {/* Mobile Menu Button */}
-        <div className="mobile-menu block md:hidden">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setNavbarOpen(true)}
-            className="flex items-center px-3 py-2 bg-primary-500 rounded-lg text-white shadow-md hover:shadow-glow transition-all duration-300"
-          >
-            <Bars3Icon className="h-4 w-4" />
-          </motion.button>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-2 mt-0">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link, index) => (
-              <motion.li
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
               >
                 <NavLink href={link.path} title={link.title} />
-              </motion.li>
+              </motion.div>
             ))}
-          </ul>
-        </div>
+          </div>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="hidden md:block"
-        >
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 bg-primary-500 text-white font-medium rounded-lg shadow-md hover:shadow-glow transition-all duration-300 flex items-center gap-2 text-sm"
-          >
-            <span>Vamos conversar</span>
-            <motion.span
-              animate={{ x: [0, 3, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+          <div className="hidden md:flex items-center">
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-primary-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm"
             >
-              →
-            </motion.span>
-          </motion.a>
-        </motion.div>
+              <FaRocket className="w-4 h-4" />
+              <span>Contato</span>
+            </motion.a>
+          </div>
+
+          <div className="md:hidden">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setNavbarOpen(true)}
+              className="p-3 bg-primary-500 rounded-xl text-white shadow-lg transition-all duration-300"
+            >
+              <Bars3Icon className="h-6 w-6" />
+            </motion.button>
+          </div>
+        </div>
       </div>
       
       <MenuOverlay links={navLinks} isOpen={navbarOpen} onClose={() => setNavbarOpen(false)} />

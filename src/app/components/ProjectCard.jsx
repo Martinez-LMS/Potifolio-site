@@ -2,6 +2,8 @@ import React from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FaReact, FaNode } from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
 
 const ProjectCard = ({ 
   imgUrl, 
@@ -15,128 +17,97 @@ const ProjectCard = ({
   const openModal = () => onOpenModal(currentIndex);
 
   return (
-    <>
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: currentIndex * 0.15, ease: [0.22, 1, 0.36, 1] }}
       className="group cursor-pointer"
-      whileHover={{ y: -10, scale: 1.02 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      onClick={openModal}
+      whileHover={{ y: -16, scale: 1.02 }}
     >
-      <div
-        className="h-52 md:h-72 rounded-t-xl relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-500"
-        style={{
-          background: `url(${imgUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
-        {/* Color overlay */}
-        <div className="absolute inset-0 bg-primary-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Hover overlay */}
-        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/60 to-white/50 backdrop-blur-sm bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-60 transition-all duration-500">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="flex gap-12"
-            >
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2 }}
+      <div className="bg-white border-2 border-light-300 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+        {/* Image Container */}
+        <div
+          className="h-72 md:h-80 relative overflow-hidden bg-light-100"
+          style={{
+            background: `url(${imgUrl})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+          }}
+          onClick={openModal}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-500"></div>
+          
+          {/* Action Buttons */}
+          <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <Link
+              href={gitUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-2xl font-black shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300"
             >
-              <Link
-                href={gitUrl}
-                target="_blank"
-                className="h-24 w-24 border-2 relative rounded-full border-primary-500/60 hover:border-primary-500 bg-white hover:bg-primary-500 backdrop-blur-sm group/link transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <CodeBracketIcon className="h-12 w-12 text-primary-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white transition-colors duration-300" />
-              </Link>
-            </motion.div>
+              <CodeBracketIcon className="w-6 h-6" />
+              <span>Código</span>
+            </Link>
             
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2 }}
+            <Link
+              href={previewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-2xl font-black shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300"
             >
-              <Link
-                href={previewUrl}
-                target="_blank"
-                className="h-24 w-24 border-2 relative rounded-full border-secondary-500/60 hover:border-secondary-500 bg-white hover:bg-secondary-500 backdrop-blur-sm group/link transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <EyeIcon className="h-12 w-12 text-secondary-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white transition-colors duration-300" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+              <EyeIcon className="w-6 h-6" />
+              <span>Visualizar</span>
+            </Link>
+          </div>
 
-        {/* Floating tech badges */}
-        <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-          <motion.span 
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileHover={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="px-3 py-1 bg-primary-500 border border-primary-400 rounded-full text-white text-xs font-semibold backdrop-blur-sm shadow-lg"
-          >
-            React
-          </motion.span>
-          <motion.span 
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileHover={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            className="px-3 py-1 bg-secondary-500 border border-secondary-400 rounded-full text-white text-xs font-semibold backdrop-blur-sm shadow-lg"
-          >
-            Next.js
-          </motion.span>
+          {/* Tech Badges */}
+          <div className="absolute top-6 left-6 flex gap-3">
+            <motion.span
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="px-4 py-2 bg-white/90 backdrop-blur-sm text-primary-600 text-xs font-black rounded-xl shadow-xl flex items-center gap-2"
+            >
+              <FaReact className="w-4 h-4" />
+              React
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="px-4 py-2 bg-white/90 backdrop-blur-sm text-black text-xs font-black rounded-xl shadow-xl flex items-center gap-2"
+            >
+              <SiNextdotjs className="w-4 h-4" />
+              Next.js
+            </motion.span>
+          </div>
+        </div>
+        
+        {/* Content */}
+        <div className="p-8 space-y-5">
+          <h5 className="text-3xl font-black text-light-900 group-hover:text-primary-600 transition-colors duration-300">
+            {title}
+          </h5>
+          <p className="text-light-600 leading-relaxed text-lg font-medium">
+            {description}
+          </p>
+          
+          <div className="flex gap-3 pt-2">
+            <span className="px-5 py-2 bg-primary-50 text-primary-700 text-sm font-black rounded-xl border-2 border-primary-300">
+              Frontend
+            </span>
+            <span className="px-5 py-2 bg-primary-50 text-primary-700 text-sm font-black rounded-xl border-2 border-primary-300">
+              Responsive
+            </span>
+          </div>
         </div>
       </div>
-      
-      <motion.div
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="text-light-900 rounded-b-xl mt-3 bg-gradient-to-br from-white to-light-50 p-6 border border-light-300 hover:border-primary-500/50 hover:shadow-lg transition-all duration-500"
-      >
-        <motion.h5 
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-          className="text-xl font-bold mb-3 gradient-text"
-        >
-          {title}
-        </motion.h5>
-        <p className="text-light-600 leading-relaxed group-hover:text-light-700 transition-colors duration-300">{description}</p>
-        
-        {/* Project tags */}
-        <motion.div 
-          initial={{ opacity: 0.8 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="flex gap-2 mt-4"
-        >
-          <motion.span 
-            whileHover={{ scale: 1.05, y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="px-3 py-1 bg-primary-100 border border-primary-300 rounded-full text-primary-700 text-sm font-medium hover:bg-primary-200 transition-all duration-300"
-          >
-            Frontend
-          </motion.span>
-          <motion.span 
-            whileHover={{ scale: 1.05, y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="px-3 py-1 bg-secondary-100 border border-secondary-300 rounded-full text-secondary-700 text-sm font-medium hover:bg-secondary-200 transition-all duration-300"
-          >
-            Responsive
-          </motion.span>
-        </motion.div>
-      </motion.div>
     </motion.div>
-    </>
   );
 };
 

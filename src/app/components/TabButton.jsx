@@ -19,7 +19,7 @@ const TabButton = ({ active, selectTab, children }) => {
       
       {/* Animated underline */}
       <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-gradient-primary"
+        className="absolute bottom-0 left-0 h-0.5 bg-primary-500"
         initial={{ width: 0 }}
         animate={{ width: active ? "100%" : 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
@@ -28,7 +28,7 @@ const TabButton = ({ active, selectTab, children }) => {
       {/* Background glow for active state */}
       {active && (
         <motion.div
-          className="absolute inset-0 bg-gradient-primary opacity-10 rounded-lg"
+          className="absolute inset-0 bg-primary-500 opacity-10 rounded-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.1 }}
           transition={{ duration: 0.3 }}

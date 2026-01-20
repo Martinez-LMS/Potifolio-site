@@ -4,6 +4,8 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { DocumentArrowDownIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { FaCode, FaRocket, FaStar, FaTrophy, FaUsers, FaLightbulb } from "react-icons/fa";
 
 const HeroSection = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -15,285 +17,227 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={ref} className="lg:py-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-secondary-50/30"></div>
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-200/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-200/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
-          >
-            <span className="inline-block px-8 py-4 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-lg font-semibold backdrop-blur-sm">
-              Olá, bem-vindo ao meu portfólio
-            </span>
-          </motion.div>
+    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-32">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary-500/5 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-400/3 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+      </div>
 
-          <h1 className="text-light-900 mb-6 text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="block"
-            >
-              <span className="text-primary-600">
-                Olá! Eu sou{" "}
-              </span>
-            </motion.span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-10"
+          >
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="min-h-[1.2em] flex items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-primary-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <TypeAnimation
-                sequence={[
-                  "Leonardo",
-                  2000,
-                  "Full-Stack Developer",
-                  2000,
-                  "React Specialist",
-                  2000,
-                  "Next.js Expert",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={30}
-                repeat={Infinity}
-                className="gradient-text"
-                style={{ display: 'inline-block' }}
-              />
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-primary-700 font-black text-sm">Disponível para projetos</span>
             </motion.div>
-          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-light-600 text-lg sm:text-xl mb-8 lg:text-2xl max-w-2xl leading-relaxed"
-          >
-            Desenvolvedor apaixonado por criar experiências digitais incríveis. 
-            <span className="text-primary-400 font-semibold"> Transformando ideias em realidade</span> através de código limpo e design moderno.
-          </motion.p>
+            {/* Main Heading */}
+            <div className="space-y-6">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-6xl sm:text-7xl lg:text-8xl font-black text-light-900 leading-[1.1]"
+              >
+                <span className="block mb-4">Olá, eu sou</span>
+                <span className="block text-primary-500">
+                  <TypeAnimation
+                    sequence={[
+                      "Leonardo",
+                      2500,
+                      "Full-Stack Developer",
+                      2500,
+                      "React Specialist",
+                      2500,
+                      "Next.js Expert",
+                      2500,
+                    ]}
+                    wrapper="span"
+                    speed={25}
+                    repeat={Infinity}
+                  />
+                </span>
+              </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link
-              href="/#contact"
-              className="group relative px-8 py-4 bg-primary-500 rounded-full text-white font-semibold text-lg hover-lift hover-glow transition-all duration-300 overflow-hidden"
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl lg:text-2xl text-light-600 leading-relaxed max-w-2xl font-medium"
+              >
+                Transformando ideias em <span className="font-black text-primary-600">experiências digitais</span> excepcionais através de código limpo, design moderno e inovação constante.
+              </motion.p>
+            </div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-wrap gap-4"
             >
-              <span className="relative z-10">Vamos conversar</span>
-              <div className="absolute inset-0 bg-secondary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-            
-            <Link
-              href="Curriculo DEV ok.pdf"
-              target="_blank"
-              className="group relative px-8 py-4 border-2 border-primary-500/30 rounded-full text-primary-500 font-semibold text-lg hover:border-primary-500 hover:bg-primary-50 transition-all duration-300 backdrop-blur-sm"
+              <Link
+                href="/#contact"
+                className="group relative px-8 py-5 bg-primary-500 text-white font-black text-lg rounded-2xl shadow-2xl shadow-primary-500/40 hover:shadow-primary-500/60 hover:scale-105 transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Vamos conversar
+                  <FaRocket className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </Link>
+              
+              <a
+                href="/api/curriculo?v=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-5 border-2 border-light-300 bg-white text-light-900 font-black text-lg rounded-2xl hover:border-primary-500 hover:bg-primary-50 hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+              >
+                <DocumentArrowDownIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Baixar CV</span>
+              </a>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="grid grid-cols-3 gap-6 pt-6 border-t-2 border-light-300"
             >
-              <span className="flex items-center gap-2">
-                📄 Baixar CV
-                <motion.span
-                  className="inline-block"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+              {[
+                { number: "4+", label: "Anos de Experiência", icon: <FaStar className="w-6 h-6 text-yellow-500" /> },
+                { number: "10+", label: "Projetos Concluídos", icon: <FaCode className="w-6 h-6 text-primary-500" /> },
+                { number: "100%", label: "Satisfação", icon: <SparklesIcon className="w-6 h-6 text-secondary-500" /> },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
+                  className="text-center group"
                 >
-                  →
-                </motion.span>
-              </span>
-            </Link>
+                  <div className="flex justify-center mb-2">{stat.icon}</div>
+                  <div className="text-3xl lg:text-4xl font-black text-light-900 mb-1 group-hover:text-primary-600 transition-colors duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-light-600 font-bold">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="col-span-4 place-self-center mt-8 lg:mt-0"
-        >
-          <div className="relative">
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-20 animate-pulse-glow"></div>
-            
-            {/* Flip Card Container */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-[280px] h-[280px] lg:w-[450px] lg:h-[450px] perspective-1000"
-              style={{ perspective: '1000px' }}
-            >
-              {/* Flip Card */}
+          {/* Right Content - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: 50, scale: 0.9 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex justify-center items-center"
+          >
+            <div className="relative w-full max-w-lg">
+              {/* Glow Effects */}
+              <div className="absolute inset-0 bg-primary-500/10 rounded-full blur-3xl animate-pulse"></div>
+              
+              {/* Main Card */}
               <motion.div
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="relative w-full h-full preserve-3d"
-                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{ scale: 1.02, rotate: 1 }}
+                transition={{ duration: 0.3 }}
+                className="relative bg-white rounded-3xl p-6 shadow-2xl border border-light-200"
               >
-                {/* Front Side - Photo */}
-                <div className="absolute inset-0 backface-hidden cursor-pointer" onClick={handleFlip}>
-                  <div className="relative rounded-full bg-white w-full h-full border-4 border-primary-200 shadow-card hover:shadow-glow transition-all duration-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-white rounded-full"></div>
-                    <Image
-                      src="/images/Perfil nova.jpg"
-                      alt="Leonardo - Full Stack Developer"
-                      className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-full object-cover w-full h-full"
-                      width={500}
-                      height={500}
-                      quality={95}
-                      priority
-                      style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center'
-                      }}
-                    />
-                    
-                    {/* Click hint */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-xs font-medium opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      Clique para saber mais
+                {/* Flip Card Container */}
+                <motion.div
+                  animate={{ rotateY: isFlipped ? 180 : 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="relative w-full preserve-3d"
+                  style={{ transformStyle: 'preserve-3d', aspectRatio: '1' }}
+                >
+                  {/* Front - Photo */}
+                  <div 
+                    className="absolute inset-0 backface-hidden cursor-pointer rounded-2xl overflow-hidden"
+                    onClick={handleFlip}
+                  >
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-primary-200 shadow-xl">
+                      <Image
+                        src="/images/Perfil nova.jpg"
+                        alt="Leonardo - Full Stack Developer"
+                        className="w-full h-full object-cover"
+                        width={500}
+                        height={500}
+                        quality={95}
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-black/10"></div>
                     </div>
                   </div>
-                </div>
 
-                {/* Back Side - Personal Info */}
-                <div 
-                  className="absolute inset-0 backface-hidden cursor-pointer"
-                  style={{ transform: 'rotateY(180deg)' }}
+                  {/* Back - Info */}
+                  <div 
+                    className="absolute inset-0 backface-hidden cursor-pointer bg-primary-500 rounded-2xl p-8 flex flex-col justify-center items-center text-white shadow-xl"
+                    style={{ transform: 'rotateY(180deg)' }}
+                    onClick={handleFlip}
+                  >
+                    <h3 className="text-3xl font-black mb-8">Sobre Mim</h3>
+                    <div className="grid grid-cols-2 gap-4 text-sm w-full">
+                      <div className="space-y-3">
+                        <p><span className="opacity-80">Idade:</span> <span className="font-black">22 anos</span></p>
+                        <p><span className="opacity-80">Localização:</span> <span className="font-black">Curitiba, PR</span></p>
+                        <p><span className="opacity-80">Paixão:</span> <span className="font-black">Desenvolver</span></p>
+                        <p><span className="opacity-80">Experiência:</span> <span className="font-black">4+ anos</span></p>
+                      </div>
+                      <div className="space-y-3">
+                        <p><span className="opacity-80">Hobby:</span> <span className="font-black">Academia</span></p>
+                        <p><span className="opacity-80">Objetivo:</span> <span className="font-black">Impactar</span></p>
+                        <p><span className="opacity-80">Formação:</span> <span className="font-black">ADS</span></p>
+                        <p><span className="opacity-80">Status:</span> <span className="font-black">Disponível</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Flip Button */}
+                <motion.button
                   onClick={handleFlip}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 px-6 py-3 bg-primary-500 text-white font-black rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="relative rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 w-full h-full border-4 border-primary-200 shadow-card hover:shadow-glow transition-all duration-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 to-secondary-500/90 rounded-full p-6 flex flex-col justify-center items-center text-white">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-center"
-                      >
-                        <div className="text-4xl mb-4"></div>
-                        <h3 className="text-xl lg:text-2xl font-bold mb-3">Sobre Mim</h3>
-                        <br />
-                        <div className="space-y-2 text-sm lg:text-base">
-                          <div className="space-y-1">
-                            <p className="text-white/95 text-center"><span className="text-white/70">Idade:</span> <span className="font-semibold">22 anos</span></p>
-                            <p className="text-white/95 text-center"><span className="text-white/70">Localização:</span> <span className="font-semibold">Curitiba, PR</span></p>
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-white/95 text-center"><span className="text-white/70">Paixão:</span> <span className="font-semibold">Desenvolver soluções</span></p>
-                            <p className="text-white/95 text-center"><span className="text-white/70">Hobby:</span> <span className="font-semibold">Academia e games</span></p>
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-white/95 text-center"><span className="text-white/70">Objetivo:</span> <span className="font-semibold">Impactar o mundo</span></p>
-                            <p className="text-white/95 text-center"><span className="text-white/70">Experiência:</span> <span className="font-semibold">2+ anos</span></p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
+                  Sobre Mim
+                </motion.button>
               </motion.div>
-              
-              {/* Floating Elements - Only show when not flipped */}
-              {!isFlipped && (
-                <>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute -top-6 -right-2 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white text-lg font-bold shadow-glow"
-                  >
-                    ⚡
-                  </motion.div>
-                  
-                  <motion.div
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center text-white text-xl shadow-glow"
-                  >
-                    💻
-                  </motion.div>
-                </>
-              )}
+
+              {/* Floating Elements */}
               <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute top-8 -left-8 w-10 h-10 bg-gradient-to-r from-accent-400 to-accent-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-glow"
+                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-8 -right-8 w-20 h-20 bg-primary-500 rounded-2xl shadow-2xl flex items-center justify-center text-white text-3xl font-black rotate-12"
               >
-                🚀
+                ✓
               </motion.div>
-              
+
               <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-glow"
+                animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary-500 rounded-2xl shadow-2xl flex items-center justify-center text-white text-2xl font-black"
               >
-                ✨
+                &lt;/&gt;
               </motion.div>
-
-              {/* Status indicator */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-8 right-4 lg:bottom-4 lg:right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg"
-              >
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                Disponível
-              </motion.div>
-
-            </motion.div>
-
-            {/* Decorative rings */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border-2 border-primary-200/30 rounded-full"
-              style={{ width: 'calc(100% + 40px)', height: 'calc(100% + 40px)', top: '-20px', left: '-20px' }}
-            ></motion.div>
-            
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border border-secondary-200/20 rounded-full"
-              style={{ width: 'calc(100% + 60px)', height: 'calc(100% + 60px)', top: '-30px', left: '-30px' }}
-            ></motion.div>
-          </div>
-
-          {/* About Me Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12 lg:mt-8 text-center"
-          >
-            <motion.button
-              onClick={handleFlip}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-full shadow-lg hover:shadow-glow transition-all duration-300 flex items-center gap-2 mx-auto"
-            >
-              <span>Sobre Mim</span>
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </motion.button>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

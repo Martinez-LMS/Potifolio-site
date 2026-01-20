@@ -22,7 +22,7 @@ const MenuOverlay = ({ links, isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
             onClick={onClose}
-            className="absolute top-6 right-6 w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white hover:shadow-glow transition-all duration-300"
+            className="absolute top-6 right-6 w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
           >
             <XMarkIcon className="h-6 w-6" />
           </motion.button>
@@ -34,7 +34,7 @@ const MenuOverlay = ({ links, isOpen, onClose }) => {
             transition={{ delay: 0.2 }}
             className="mb-12 flex items-center gap-3"
           >
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow">
+            <div className="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-xl">&lt;/&gt;</span>
             </div>
             <div>
@@ -74,7 +74,7 @@ const MenuOverlay = ({ links, isOpen, onClose }) => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-primary text-white font-semibold rounded-xl hover:shadow-glow transition-all duration-300 flex items-center gap-2"
+              className="px-8 py-3 bg-primary-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2"
             >
               <span>Vamos conversar</span>
               <motion.span
