@@ -1,0 +1,4 @@
+Update realizado em: 2024
+Correção: Detecção de parâmetro curriculo com fallback para window.location.search
+Arquivo modificado: src/app/components/HomeContent.jsx
+

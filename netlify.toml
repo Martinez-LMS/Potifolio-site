@@ -1,0 +1,33 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[redirects]]
+  from = "/Leonardo M SAP.pdf"
+  to = "/download/sap"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Leonardo%20M%20SAP.pdf"
+  to = "/download/sap"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Leonardo Front.pdf"
+  to = "/download/front"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/Leonardo%20Front.pdf"
+  to = "/download/front"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useInView } from "framer-motion";
@@ -7,13 +7,50 @@ import Link from "next/link";
 import { DocumentArrowDownIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { FaCode, FaRocket, FaStar, FaTrophy, FaUsers, FaLightbulb } from "react-icons/fa";
 
-const HeroSection = () => {
+const HeroSection = ({ curriculoType = "front" }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
+  };
+
+  const heroContent = {
+    front: {
+      typeSequence: [
+        "Leonardo",
+        2500,
+        "Full-Stack Developer",
+        2500,
+        "React Specialist",
+        2500,
+        "Next.js Expert",
+        2500,
+      ],
+      description: "Transformando ideias em experiências digitais excepcionais através de código limpo, design moderno e inovação constante."
+    },
+    sap: {
+      typeSequence: [
+        "Leonardo",
+        2500,
+        "Fiori/UI5 Developer",
+        2500,
+        "SAP Specialist",
+        2500,
+        "ABAP Developer",
+        2500,
+      ],
+      description: "Desenvolvendo aplicações corporativas SAP modernas e escaláveis utilizando Fiori Elements, SAPUI5 e RAP, transformando processos de negócio em soluções digitais eficientes."
+    }
+  };
+
+  const content = heroContent[curriculoType] || heroContent.front;
+
+  const handleDownloadCV = (e) => {
+    e.preventDefault();
+    const downloadUrl = `/api/curriculo?type=${curriculoType}`;
+    window.open(downloadUrl, '_blank');
   };
 
   return (
@@ -57,19 +94,11 @@ const HeroSection = () => {
                 <span className="block mb-4">Olá, eu sou</span>
                 <span className="block text-primary-500">
                   <TypeAnimation
-                    sequence={[
-                      "Leonardo",
-                      2500,
-                      "Full-Stack Developer",
-                      2500,
-                      "React Specialist",
-                      2500,
-                      "Next.js Expert",
-                      2500,
-                    ]}
+                    sequence={content.typeSequence}
                     wrapper="span"
                     speed={25}
                     repeat={Infinity}
+                    key={curriculoType}
                   />
                 </span>
               </motion.h1>
@@ -79,8 +108,15 @@ const HeroSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl lg:text-2xl text-light-600 leading-relaxed max-w-2xl font-medium"
+                key={curriculoType}
               >
-                Transformando ideias em <span className="font-black text-primary-600">experiências digitais</span> excepcionais através de código limpo, design moderno e inovação constante.
+                {content.description.split(' ').map((word, i) => 
+                  word.includes('experiências') || word.includes('aplicações') || word.includes('soluções') ? (
+                    <span key={i} className="font-black text-primary-600">{word} </span>
+                  ) : (
+                    <span key={i}>{word} </span>
+                  )
+                )}
               </motion.p>
             </div>
 
@@ -101,15 +137,14 @@ const HeroSection = () => {
                 </span>
               </Link>
               
-              <a
-                href="/api/curriculo?v=2"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.a
+                href={`/api/curriculo?type=${curriculoType}`}
+                onClick={handleDownloadCV}
                 className="group px-8 py-5 border-2 border-light-300 bg-white text-light-900 font-black text-lg rounded-2xl hover:border-primary-500 hover:bg-primary-50 hover:shadow-xl transition-all duration-300 flex items-center gap-3"
               >
                 <DocumentArrowDownIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Baixar CV</span>
-              </a>
+              </motion.a>
             </motion.div>
 
             {/* Stats */}

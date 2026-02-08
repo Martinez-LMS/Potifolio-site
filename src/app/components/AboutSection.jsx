@@ -3,9 +3,24 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGraduationCap, FaBriefcase, FaCertificate, FaRocket, FaAward, FaCode, FaDesktop, FaCloud, FaMobile, FaLightbulb, FaUsers, FaChartLine, FaTools, FaHandshake } from "react-icons/fa";
 
-const AboutSection = () => {
+const AboutSection = ({ curriculoType = "front" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
+
+  const aboutContent = {
+    front: {
+      title: "Desenvolvedor Full-Stack",
+      description: "Transformando ideias complexas em experiências simples e eficientes, sempre buscando superar expectativas através de código limpo e soluções inovadoras.",
+      subtitle: "Desenvolvedor com sólida trajetória no ecossistema React, focado na criação de interfaces dinâmicas, escaláveis e de alta performance."
+    },
+    sap: {
+      title: "Desenvolvedor Fiori/UI5 | Aplicações Corporativas SAP",
+      description: "Desenvolvendo aplicações corporativas SAP modernas e escaláveis utilizando Fiori Elements, SAPUI5 e implementação de regras de negócio em ABAP.",
+      subtitle: "Desenvolvedor Fiori/UI5 especializado em aplicações corporativas SAP, com experiência em Fiori Elements, SAPUI5 e modelo RAP."
+    }
+  };
+
+  const content = aboutContent[curriculoType] || aboutContent.front;
 
   const certificates = [
     {
@@ -85,11 +100,17 @@ const AboutSection = () => {
           </motion.div>
 
           <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
-            Desenvolvedor Full-Stack
+            {content.title}
           </h2>
           
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
-            Transformando <span className="font-black text-primary-600">ideias complexas</span> em experiências simples e eficientes, sempre buscando superar expectativas através de código limpo e soluções inovadoras.
+            {content.description.split(' ').map((word, i) => 
+              word.includes('ideias') || word.includes('aplicações') || word.includes('Fiori') ? (
+                <span key={i} className="font-black text-primary-600">{word} </span>
+              ) : (
+                <span key={i}>{word} </span>
+              )
+            )}
           </p>
         </motion.div>
 

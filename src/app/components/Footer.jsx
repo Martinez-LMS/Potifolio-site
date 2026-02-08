@@ -8,7 +8,7 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import WhatsappIcon from "../../../public/whatsapp-logo.svg";
 import { FaCode, FaRocket } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ curriculoType = "front" }) => {
   return (
     <footer className="bg-white border-t-2 border-light-300 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-24 relative z-10">
@@ -53,13 +53,10 @@ const Footer = () => {
                 { href: "/#skills", label: "Tecnologias" },
                 { href: "/#projects", label: "Projetos" },
                 { href: "/#contact", label: "Contato" },
-                { href: "/api/curriculo?v=2", label: "Currículo", external: true },
               ].map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-3 text-lg font-bold text-light-600 hover:text-primary-600 transition-all duration-300"
                 >
                   <span className="w-2 h-2 bg-primary-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -72,6 +69,35 @@ const Footer = () => {
                   </motion.span>
                 </Link>
               ))}
+              <div className="pt-2 space-y-2">
+                <p className="text-sm font-black text-light-700 mb-2">Currículos:</p>
+                <Link
+                  href="/?curriculo=front"
+                  className="group flex items-center gap-3 text-lg font-bold text-light-600 hover:text-primary-600 transition-all duration-300"
+                >
+                  <span className="w-2 h-2 bg-primary-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span>Frontend</span>
+                  <motion.span
+                    className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                    animate={{ x: 0 }}
+                  >
+                    →
+                  </motion.span>
+                </Link>
+                <Link
+                  href="/?curriculo=sap"
+                  className="group flex items-center gap-3 text-lg font-bold text-light-600 hover:text-primary-600 transition-all duration-300"
+                >
+                  <span className="w-2 h-2 bg-primary-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span>SAP/Fiori</span>
+                  <motion.span
+                    className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                    animate={{ x: 0 }}
+                  >
+                    →
+                  </motion.span>
+                </Link>
+              </div>
             </div>
           </motion.div>
 

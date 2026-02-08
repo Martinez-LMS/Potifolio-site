@@ -5,11 +5,11 @@ import { FaReact, FaNode, FaPython, FaJs, FaHtml5, FaDocker, FaAws, FaGitAlt, Fa
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiExpress, SiGraphql, SiFirebase } from 'react-icons/si';
 import { GiElephantHead } from 'react-icons/gi';
 
-const SkillsSection = () => {
+const SkillsSection = ({ curriculoType = "front" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
   
-  const skillCategories = [
+  const skillCategoriesFront = [
     {
       title: "Frontend",
       icon: <FaLaptop className="w-8 h-8" />,
@@ -52,9 +52,58 @@ const SkillsSection = () => {
         { name: "AWS", icon: <FaAws className="w-7 h-7" />, color: "text-orange-600" },
         { name: "Git", icon: <FaGitAlt className="w-7 h-7" />, color: "text-red-600" },
         { name: "Linux", icon: <FaLinux className="w-7 h-7" />, color: "text-yellow-600" },
+      ]  
+    }
+  ];
+
+  const skillCategoriesSAP = [
+    {
+      title: "SAP Fiori & UI5",
+      icon: <FaLaptop className="w-8 h-8" />,
+      skills: [
+        { name: "SAP Fiori", icon: <FaCode className="w-7 h-7" />, color: "text-blue-600" },
+        { name: "SAPUI5", icon: <FaCode className="w-7 h-7" />, color: "text-blue-500" },
+        { name: "Fiori Elements", icon: <FaCode className="w-7 h-7" />, color: "text-indigo-600" },
+        { name: "JavaScript", icon: <FaJs className="w-7 h-7" />, color: "text-yellow-500" },
+        { name: "TypeScript", icon: <SiTypescript className="w-7 h-7" />, color: "text-blue-600" },
+        { name: "XML Views", icon: <FaCode className="w-7 h-7" />, color: "text-gray-600" },
+      ]
+    },
+    {
+      title: "ABAP & Backend",
+      icon: <FaCog className="w-8 h-8" />,
+      skills: [
+        { name: "ABAP", icon: <FaCode className="w-7 h-7" />, color: "text-orange-600" },
+        { name: "RAP", icon: <FaCode className="w-7 h-7" />, color: "text-purple-600" },
+        { name: "CDS Views", icon: <FaDatabase className="w-7 h-7" />, color: "text-blue-700" },
+        { name: "OData", icon: <FaServer className="w-7 h-7" />, color: "text-indigo-600" },
+        { name: "Gateway", icon: <FaServer className="w-7 h-7" />, color: "text-green-600" },
+        { name: "BAPI", icon: <FaCode className="w-7 h-7" />, color: "text-gray-800" },
+      ]
+    },
+    {
+      title: "SAP BTP & Cloud",
+      icon: <FaCloud className="w-8 h-8" />,
+      skills: [
+        { name: "SAP BTP", icon: <FaCloud className="w-7 h-7" />, color: "text-blue-600" },
+        { name: "Cloud Foundry", icon: <FaCloud className="w-7 h-7" />, color: "text-cyan-500" },
+        { name: "Git", icon: <FaGitAlt className="w-7 h-7" />, color: "text-red-600" },
+        { name: "CI/CD", icon: <FaCode className="w-7 h-7" />, color: "text-purple-600" },
+      ]
+    },
+    {
+      title: "Ferramentas & Metodologias",
+      icon: <FaCode className="w-8 h-8" />,
+      skills: [
+        { name: "Jira", icon: <FaCode className="w-7 h-7" />, color: "text-blue-500" },
+        { name: "Scrum", icon: <FaCode className="w-7 h-7" />, color: "text-green-600" },
+        { name: "Agile", icon: <FaCode className="w-7 h-7" />, color: "text-orange-600" },
+        { name: "SAP Solution Manager", icon: <FaCode className="w-7 h-7" />, color: "text-indigo-600" },
       ]
     }
   ];
+
+  const skillCategories = curriculoType === "sap" ? skillCategoriesSAP : skillCategoriesFront;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,9 +156,11 @@ const SkillsSection = () => {
           </h2>
           
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
-            Domino uma ampla gama de tecnologias modernas para criar
-            <span className="font-black text-primary-600"> soluções completas e escaláveis</span>, 
-            desde o frontend até a infraestrutura.
+            {curriculoType === "sap" ? (
+              <>Domínio em tecnologias <span className="font-black text-primary-600">SAP</span> e ferramentas essenciais para desenvolvimento de aplicações corporativas</>
+            ) : (
+              <>Domino uma ampla gama de tecnologias modernas para criar <span className="font-black text-primary-600">soluções completas e escaláveis</span>, desde o frontend até a infraestrutura.</>
+            )}
           </p>
         </motion.div>
 

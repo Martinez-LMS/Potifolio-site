@@ -3,11 +3,11 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaBuilding, FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
 
-const ExperienceSection = () => {
+const ExperienceSection = ({ curriculoType = "front" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
 
-  const experiences = [
+  const experiencesFront = [
     {
       id: 1,
       company: "ZT Consulting",
@@ -55,6 +55,27 @@ const ExperienceSection = () => {
     }
   ];
 
+  const experiencesSAP = [
+    {
+      id: 1,
+      company: "ZT Consulting",
+      role: "Desenvolvimento SAP Fiori/UI5",
+      location: "Curitiba, PR",
+      period: "2024 - 2026",
+      activities: [
+        "Desenvolvimento SAPUI5 Freestyle & UX Strategy: Design e arquitetura de aplicações customizadas de alta complexidade, seguindo rigorosamente as diretrizes de UX da SAP e padrões de design Fiori",
+        "Implementação com Fiori Elements: Desenvolvimento de aplicações utilizando Fiori Elements (List Report, Object Page, Overview Page), maximizando produtividade e garantindo conformidade com padrões SAP",
+        "Desenvolvimento ABAP e RAP: Implementação de regras de negócio robustas utilizando ABAP e o modelo RAP (RESTful Application Programming), criando APIs OData performáticas e escaláveis",
+        "CDS Views e OData Services: Criação e otimização de CDS Views complexas para exposição de dados através de serviços OData/Gateway, garantindo performance e segurança",
+        "Integração e Extensibilidade: Desenvolvimento de extensões (Extensions) em aplicações padrão SAP, customizações de UI e implementação de lógica de negócio customizada",
+        "Metodologias Ágeis e Colaboração: Atuação em projetos multidisciplinares sob metodologias ágeis, participação em refinamentos técnicos e documentação de requisitos no Jira"
+      ],
+      technologies: ["SAP Fiori", "SAPUI5", "ABAP", "Fiori Elements", "CDS Views", "OData", "Gateway", "RAP", "SAP BTP", "Git", "Jira"]
+    }
+  ];
+
+  const experiences = curriculoType === "sap" ? experiencesSAP : experiencesFront;
+
   return (
     <section ref={ref} className="py-32 relative overflow-hidden bg-white" id="experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
@@ -82,7 +103,11 @@ const ExperienceSection = () => {
           </h2>
           
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
-            Trajetória profissional com <span className="font-black text-primary-600">projetos desafiadores</span> e soluções inovadoras
+            {curriculoType === "sap" ? (
+              <>Desenvolvendo aplicações corporativas SAP modernas com <span className="font-black text-primary-600">Fiori Elements e SAPUI5</span></>
+            ) : (
+              <>Trajetória profissional com <span className="font-black text-primary-600">projetos desafiadores</span> e soluções inovadoras</>
+            )}
           </p>
         </motion.div>
 
