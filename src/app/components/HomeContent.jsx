@@ -1,6 +1,7 @@
 "use client";
 // Corrige detecção de parâmetro curriculo com fallback para window.location.search
 // Atualizado: 2024 - Adiciona fallback para garantir detecção correta do parâmetro
+// Versão: 1.1 - Melhora detecção de parâmetro URL
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import HeroSection from "./HeroSection";
