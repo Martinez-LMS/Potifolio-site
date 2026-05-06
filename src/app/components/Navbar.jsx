@@ -33,8 +33,8 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-white border-b border-light-200 shadow-lg' 
+        scrolled
+          ? 'bg-white border-b border-light-200 shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -51,7 +51,7 @@ const Navbar = () => {
               <h1 className="text-xl font-black text-light-900 group-hover:text-primary-500 transition-colors duration-300">
                 Leonardo Martinez
               </h1>
-              <p className="text-xs text-light-500 font-bold">Full-Stack Developer</p>
+              <p className="text-xs text-light-500 font-bold">Desenvolvedor Frontend</p>
             </div>
           </Link>
 
@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       <MenuOverlay links={navLinks} isOpen={navbarOpen} onClose={() => setNavbarOpen(false)} />
     </motion.nav>
   );

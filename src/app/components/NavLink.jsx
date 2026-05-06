@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 import useActiveSection from "../hooks/useActiveSection";
 
 const NavLink = ({ href, title }) => {
   const activeSection = useActiveSection();
   const isActive = href === `#${activeSection}`;
-  
+
   return (
     <Link
       href={href}

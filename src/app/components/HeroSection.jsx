@@ -1,27 +1,25 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { DocumentArrowDownIcon, SparklesIcon } from "@heroicons/react/24/outline";
-import { FaCode, FaRocket, FaStar, FaTrophy, FaUsers, FaLightbulb } from "react-icons/fa";
+import { FaCode, FaRocket, FaStar } from "react-icons/fa";
 
 const HeroSection = ({ curriculoType = "front" }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-100px" });
 
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+  const handleFlip = () => setIsFlipped(!isFlipped);
 
   const heroContent = {
     front: {
       typeSequence: [
         "Leonardo",
         2500,
-        "Full-Stack Developer",
+        "Desenvolvedor Frontend",
         2500,
         "React Specialist",
         2500,
@@ -49,8 +47,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
 
   const handleDownloadCV = (e) => {
     e.preventDefault();
-    const downloadUrl = `/api/curriculo?type=${curriculoType}`;
-    window.open(downloadUrl, '_blank');
+    window.open(`/api/curriculo?type=${curriculoType}`, '_blank');
   };
 
   return (
@@ -64,7 +61,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -110,7 +107,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                 className="text-xl lg:text-2xl text-light-600 leading-relaxed max-w-2xl font-medium"
                 key={curriculoType}
               >
-                {content.description.split(' ').map((word, i) => 
+                {content.description.split(' ').map((word, i) =>
                   word.includes('experiências') || word.includes('aplicações') || word.includes('soluções') ? (
                     <span key={i} className="font-black text-primary-600">{word} </span>
                   ) : (
@@ -136,7 +133,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   <FaRocket className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </Link>
-              
+
               <motion.a
                 href={`/api/curriculo?type=${curriculoType}`}
                 onClick={handleDownloadCV}
@@ -184,16 +181,13 @@ const HeroSection = ({ curriculoType = "front" }) => {
             className="relative flex justify-center items-center"
           >
             <div className="relative w-full max-w-lg">
-              {/* Glow Effects */}
               <div className="absolute inset-0 bg-primary-500/10 rounded-full blur-3xl animate-pulse"></div>
-              
-              {/* Main Card */}
+
               <motion.div
                 whileHover={{ scale: 1.02, rotate: 1 }}
                 transition={{ duration: 0.3 }}
                 className="relative bg-white rounded-3xl p-6 shadow-2xl border border-light-200"
               >
-                {/* Flip Card Container */}
                 <motion.div
                   animate={{ rotateY: isFlipped ? 180 : 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -201,14 +195,14 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   style={{ transformStyle: 'preserve-3d', aspectRatio: '1' }}
                 >
                   {/* Front - Photo */}
-                  <div 
+                  <div
                     className="absolute inset-0 backface-hidden cursor-pointer rounded-2xl overflow-hidden"
                     onClick={handleFlip}
                   >
                     <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-primary-200 shadow-xl">
                       <Image
                         src="/images/Perfil nova.jpg"
-                        alt="Leonardo - Full Stack Developer"
+                        alt="Leonardo - Desenvolvedor Frontend"
                         className="w-full h-full object-cover"
                         width={500}
                         height={500}
@@ -220,7 +214,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   </div>
 
                   {/* Back - Info */}
-                  <div 
+                  <div
                     className="absolute inset-0 backface-hidden cursor-pointer bg-primary-500 rounded-2xl p-8 flex flex-col justify-center items-center text-white shadow-xl"
                     style={{ transform: 'rotateY(180deg)' }}
                     onClick={handleFlip}
@@ -228,10 +222,10 @@ const HeroSection = ({ curriculoType = "front" }) => {
                     <h3 className="text-3xl font-black mb-8">Sobre Mim</h3>
                     <div className="grid grid-cols-2 gap-4 text-sm w-full">
                       <div className="space-y-3">
-                        <p><span className="opacity-80">Idade:</span> <span className="font-black">22 anos</span></p>
                         <p><span className="opacity-80">Localização:</span> <span className="font-black">Curitiba, PR</span></p>
                         <p><span className="opacity-80">Paixão:</span> <span className="font-black">Desenvolver</span></p>
                         <p><span className="opacity-80">Experiência:</span> <span className="font-black">4+ anos</span></p>
+                        <p><span className="opacity-80">Inglês:</span> <span className="font-black">Intermediário</span></p>
                       </div>
                       <div className="space-y-3">
                         <p><span className="opacity-80">Hobby:</span> <span className="font-black">Academia</span></p>
@@ -243,7 +237,6 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   </div>
                 </motion.div>
 
-                {/* Flip Button */}
                 <motion.button
                   onClick={handleFlip}
                   whileHover={{ scale: 1.05 }}
@@ -254,7 +247,6 @@ const HeroSection = ({ curriculoType = "front" }) => {
                 </motion.button>
               </motion.div>
 
-              {/* Floating Elements */}
               <motion.div
                 animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

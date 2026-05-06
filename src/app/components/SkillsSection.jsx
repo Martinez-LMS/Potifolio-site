@@ -1,14 +1,14 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaReact, FaNode, FaPython, FaJs, FaHtml5, FaDocker, FaAws, FaGitAlt, FaLinux, FaDatabase, FaServer, FaCode, FaCog, FaCloud, FaLaptop } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiExpress, SiGraphql, SiFirebase } from 'react-icons/si';
+import { FaReact, FaJs, FaHtml5, FaDocker, FaAws, FaGitAlt, FaDatabase, FaServer, FaCode, FaCog, FaCloud, FaLaptop } from 'react-icons/fa';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFirebase } from 'react-icons/si';
 import { GiElephantHead } from 'react-icons/gi';
 
 const SkillsSection = ({ curriculoType = "front" }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
-  
+  useInView(ref, { margin: "-100px" });
+
   const skillCategoriesFront = [
     {
       title: "Frontend",
@@ -26,33 +26,33 @@ const SkillsSection = ({ curriculoType = "front" }) => {
       title: "Backend",
       icon: <FaCog className="w-8 h-8" />,
       skills: [
-        { name: "Node.js", icon: <FaNode className="w-7 h-7" />, color: "text-green-600" },
-        { name: "Python", icon: <FaPython className="w-7 h-7" />, color: "text-blue-500" },
         { name: "C#", icon: <FaCode className="w-7 h-7" />, color: "text-purple-600" },
-        { name: "Express.js", icon: <SiExpress className="w-7 h-7" />, color: "text-gray-800" },
+        { name: "ASP.NET Core", icon: <FaServer className="w-7 h-7" />, color: "text-violet-600" },
         { name: "REST APIs", icon: <FaServer className="w-7 h-7" />, color: "text-indigo-600" },
-        { name: "GraphQL", icon: <SiGraphql className="w-7 h-7" />, color: "text-pink-600" },
+        { name: "Redux", icon: <FaCode className="w-7 h-7" />, color: "text-purple-500" },
+        { name: "Axios", icon: <FaCode className="w-7 h-7" />, color: "text-blue-500" },
+        { name: "Jest", icon: <FaCode className="w-7 h-7" />, color: "text-red-500" },
       ]
     },
     {
       title: "Banco de Dados",
       icon: <FaDatabase className="w-8 h-8" />,
       skills: [
-        { name: "MongoDB", icon: <FaDatabase className="w-7 h-7" />, color: "text-green-600" },
+        { name: "SQL", icon: <FaDatabase className="w-7 h-7" />, color: "text-blue-600" },
         { name: "PostgreSQL", icon: <GiElephantHead className="w-7 h-7" />, color: "text-blue-700" },
-        { name: "MySQL", icon: <FaDatabase className="w-7 h-7" />, color: "text-blue-600" },
         { name: "Firebase", icon: <SiFirebase className="w-7 h-7" />, color: "text-orange-500" },
+        { name: "MongoDB", icon: <FaDatabase className="w-7 h-7" />, color: "text-green-600" },
       ]
     },
     {
       title: "DevOps & Cloud",
       icon: <FaCloud className="w-8 h-8" />,
       skills: [
-        { name: "Docker", icon: <FaDocker className="w-7 h-7" />, color: "text-blue-600" },
         { name: "AWS", icon: <FaAws className="w-7 h-7" />, color: "text-orange-600" },
+        { name: "Netlify", icon: <FaCloud className="w-7 h-7" />, color: "text-teal-500" },
         { name: "Git", icon: <FaGitAlt className="w-7 h-7" />, color: "text-red-600" },
-        { name: "Linux", icon: <FaLinux className="w-7 h-7" />, color: "text-yellow-600" },
-      ]  
+        { name: "Docker", icon: <FaDocker className="w-7 h-7" />, color: "text-blue-600" },
+      ]
     }
   ];
 
@@ -107,25 +107,12 @@ const SkillsSection = ({ curriculoType = "front" }) => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 80, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
   };
 
   return (
@@ -154,12 +141,12 @@ const SkillsSection = ({ curriculoType = "front" }) => {
           <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
             Tecnologias & Ferramentas
           </h2>
-          
+
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
             {curriculoType === "sap" ? (
               <>Domínio em tecnologias <span className="font-black text-primary-600">SAP</span> e ferramentas essenciais para desenvolvimento de aplicações corporativas</>
             ) : (
-              <>Domino uma ampla gama de tecnologias modernas para criar <span className="font-black text-primary-600">soluções completas e escaláveis</span>, desde o frontend até a infraestrutura.</>
+              <>Domino uma ampla gama de tecnologias modernas para criar <span className="font-black text-primary-600">soluções completas e escaláveis</span></>
             )}
           </p>
         </motion.div>
@@ -180,7 +167,6 @@ const SkillsSection = ({ curriculoType = "front" }) => {
               className="group relative bg-white border-2 border-light-300 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden"
             >
               <div className="relative z-10">
-                {/* Header */}
                 <div className="flex items-center gap-6 mb-10">
                   <div className="w-20 h-20 bg-primary-500 rounded-3xl flex items-center justify-center text-white shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                     {category.icon}
@@ -191,7 +177,6 @@ const SkillsSection = ({ curriculoType = "front" }) => {
                   </div>
                 </div>
 
-                {/* Skills Grid */}
                 <div className="grid grid-cols-2 gap-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div

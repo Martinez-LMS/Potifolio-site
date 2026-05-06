@@ -1,10 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import WhatsappIcon from "../../../public/whatsapp-logo.svg";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { EnvelopeIcon, CheckCircleIcon, PaperAirplaneIcon, UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaRocket } from "react-icons/fa";
@@ -30,9 +26,7 @@ const EmailSection = () => {
 
       const response = await fetch("/api/send", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -81,11 +75,7 @@ const EmailSection = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      id="contact"
-      className="py-32 relative overflow-hidden bg-white"
-    >
+    <section ref={ref} id="contact" className="py-32 relative overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <motion.div
@@ -110,7 +100,7 @@ const EmailSection = () => {
           <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
             Entre em Contato
           </h2>
-          
+
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
             Pronto para transformar sua ideia em realidade?
             <span className="block mt-4 font-black text-primary-600">
@@ -129,9 +119,7 @@ const EmailSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-4xl font-black text-light-900 mb-4">
-                Conecte-se Comigo
-              </h3>
+              <h3 className="text-4xl font-black text-light-900 mb-4">Conecte-se Comigo</h3>
               <p className="text-xl text-light-600 leading-relaxed mb-10 font-medium">
                 Siga-me nas redes sociais para acompanhar meus projetos e novidades.
               </p>
@@ -195,9 +183,7 @@ const EmailSection = () => {
                   >
                     <CheckCircleIcon className="w-14 h-14 text-white" />
                   </motion.div>
-                  <h3 className="text-4xl font-black text-light-900 mb-4">
-                    Mensagem Enviada!
-                  </h3>
+                  <h3 className="text-4xl font-black text-light-900 mb-4">Mensagem Enviada!</h3>
                   <p className="text-xl text-light-600 font-medium">
                     Obrigado pelo contato. Responderei em breve!
                   </p>
@@ -213,12 +199,9 @@ const EmailSection = () => {
                       <p className="text-red-600 text-sm font-black">{error}</p>
                     </motion.div>
                   )}
-                  
+
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2"
-                    >
+                    <label htmlFor="email" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
                       <EnvelopeIcon className="w-5 h-5 text-primary-600" />
                       Seu Email
                     </label>
@@ -233,10 +216,7 @@ const EmailSection = () => {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2"
-                    >
+                    <label htmlFor="subject" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
                       <DocumentTextIcon className="w-5 h-5 text-primary-600" />
                       Assunto
                     </label>
@@ -251,10 +231,7 @@ const EmailSection = () => {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2"
-                    >
+                    <label htmlFor="message" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
                       <UserIcon className="w-5 h-5 text-primary-600" />
                       Mensagem
                     </label>

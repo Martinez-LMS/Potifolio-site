@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaBuilding, FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
+import { FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
 
 const ExperienceSection = ({ curriculoType = "front" }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+  useInView(ref, { margin: "-100px" });
 
   const experiencesFront = [
     {
@@ -13,43 +13,44 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
       company: "ZT Consulting",
       role: "Desenvolvimento WEB",
       location: "Curitiba, PR",
-      period: "2024 - 2026",
+      period: "2024 – 2026",
       activities: [
-        "Arquitetura de aplicações robustas garantindo segurança de tipos, redução de bugs e alta escalabilidade do código",
-        "Implementação de fluxos de dados complexos para gestão de estado global e roteamento dinâmico e performático",
-        "Criação de interfaces responsivas, modernas e padronizadas focando em agilidade do desenvolvimento e fidelidade visual (Pixel Perfect)",
-        "Integração de APIs RESTful garantindo comunicações assíncronas eficientes entre frontend e serviços de backend",
-        "Gerenciamento de serviços em nuvem e automação de deploys e hospedagem",
-        "Garantia de estabilidade através de testes unitários e de integração, participação ativa em revisões de código e controle de versão rigoroso",
-        "Atuação em projetos multidisciplinares sob metodologias ágeis, contribuindo com refinamentos técnicos e documentação de requisitos"
+        "Arquitetura de aplicações robustas com React + TypeScript, garantindo segurança de tipos, redução de bugs e alta escalabilidade",
+        "Implementação de fluxos de dados complexos com Redux para gestão de estado global e React Router para roteamento performático",
+        "Criação de interfaces responsivas e padronizadas com Tailwind CSS, focando em agilidade e fidelidade visual (Pixel Perfect)",
+        "Integração de APIs RESTful com Axios, garantindo comunicações assíncronas eficientes entre frontend e backend",
+        "Gerenciamento de serviços em nuvem com Firebase e AWS, além de automação de deploys via Netlify",
+        "Garantia de estabilidade com testes unitários e de integração com Jest, code review ativo e controle de versão com Git",
+        "Atuação em projetos multidisciplinares com metodologias ágeis, refinamentos técnicos e documentação no Jira"
       ],
       technologies: ["React", "TypeScript", "Redux", "React Router", "Tailwind CSS", "Axios", "Firebase", "AWS", "Netlify", "Jest", "Git", "Jira"]
     },
     {
       id: 2,
-      company: "Grupo Muffato",
-      role: "Infraestrutura de Rede",
+      company: "CertSim",
+      role: "Desenvolvimento FrontEnd",
       location: "Curitiba, PR",
-      period: "2023 - 2024",
+      period: "2023 – 2024",
       activities: [
-        "Responsável pela manutenção e configuração de redes locais (LAN) dedicadas, garantindo baixa latência e fluxo contínuo de dados entre dispositivos e servidores",
-        "Administração e suporte técnico a hardware e software de segurança, incluindo DVRs, NVRs e Servidores, assegurando integridade das gravações e acesso em tempo real",
-        "Implementação de rotinas de manutenção preventiva e corretiva para mitigar falhas de sistema, mantendo indicadores de disponibilidade (uptime) em níveis críticos para a operação"
+        "Desenvolvimento e evolução de plataforma web voltada para estudos e preparação para certificações profissionais",
+        "Criação de interfaces onde os usuários podiam acessar conteúdos, realizar simulados e acompanhar seu desempenho",
+        "Construção de componentes reutilizáveis e organização da aplicação em arquitetura escalável com React",
+        "Integração com APIs REST garantindo correta comunicação entre o front-end e os serviços de backend"
       ],
-      technologies: ["Redes LAN", "DVR", "NVR", "Servidores", "Monitoramento"]
+      technologies: ["React", "TypeScript", "Tailwind CSS", "REST APIs", "Git"]
     },
     {
       id: 3,
       company: "Maya Protese Dentaria",
       role: "Desenvolvimento WEB",
       location: "Curitiba, PR",
-      period: "2021 - 2022",
+      period: "2021 – 2022",
       activities: [
         "Criação de interfaces modernas, responsivas e de alta fidelidade priorizando componentização e reutilização de código",
-        "Construção e manutenção de APIs RESTful robustas aplicando princípios de Clean Code e padrões de projeto para garantir APIs performáticas",
-        "Responsável pela ponte entre front-end e back-end, garantindo integridade dos dados, tratamento de exceções e otimização do consumo de recursos",
-        "Manipulação de bancos de dados e implementação de soluções em nuvem garantindo disponibilidade contínua dos sistemas",
-        "Execução de testes automatizados, controle de versão rigoroso e participação ativa em ritos de agilidade e refinamentos técnicos"
+        "Construção e manutenção de APIs RESTful com C# e ASP.NET Core, aplicando Clean Code e padrões de projeto",
+        "Ponte entre front-end e back-end, garantindo integridade dos dados, tratamento de exceções e otimização com Axios",
+        "Manipulação de bancos de dados e implementação de soluções em nuvem garantindo disponibilidade contínua",
+        "Execução de testes automatizados com Jest, controle de versão com Git e participação em ritos ágeis"
       ],
       technologies: ["React", "TypeScript", "Tailwind CSS", "C#", "ASP.NET Core", "SQL", "Axios", "Firebase", "AWS", "Netlify", "Jest", "Git"]
     }
@@ -61,14 +62,14 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
       company: "ZT Consulting",
       role: "Desenvolvimento SAP Fiori/UI5",
       location: "Curitiba, PR",
-      period: "2024 - 2026",
+      period: "2024 – 2026",
       activities: [
-        "Desenvolvimento SAPUI5 Freestyle & UX Strategy: Design e arquitetura de aplicações customizadas de alta complexidade, seguindo rigorosamente as diretrizes de UX da SAP e padrões de design Fiori",
-        "Implementação com Fiori Elements: Desenvolvimento de aplicações utilizando Fiori Elements (List Report, Object Page, Overview Page), maximizando produtividade e garantindo conformidade com padrões SAP",
-        "Desenvolvimento ABAP e RAP: Implementação de regras de negócio robustas utilizando ABAP e o modelo RAP (RESTful Application Programming), criando APIs OData performáticas e escaláveis",
-        "CDS Views e OData Services: Criação e otimização de CDS Views complexas para exposição de dados através de serviços OData/Gateway, garantindo performance e segurança",
-        "Integração e Extensibilidade: Desenvolvimento de extensões (Extensions) em aplicações padrão SAP, customizações de UI e implementação de lógica de negócio customizada",
-        "Metodologias Ágeis e Colaboração: Atuação em projetos multidisciplinares sob metodologias ágeis, participação em refinamentos técnicos e documentação de requisitos no Jira"
+        "Desenvolvimento SAPUI5 Freestyle & UX Strategy: Design e arquitetura de aplicações customizadas seguindo as diretrizes de UX da SAP",
+        "Implementação com Fiori Elements: Desenvolvimento de aplicações utilizando List Report, Object Page e Overview Page",
+        "Desenvolvimento ABAP e RAP: Implementação de regras de negócio robustas criando APIs OData performáticas e escaláveis",
+        "CDS Views e OData Services: Criação e otimização de CDS Views complexas para exposição de dados via Gateway",
+        "Integração e Extensibilidade: Desenvolvimento de extensões em aplicações padrão SAP e customizações de UI",
+        "Metodologias Ágeis e Colaboração: Atuação em projetos com metodologias ágeis e documentação no Jira"
       ],
       technologies: ["SAP Fiori", "SAPUI5", "ABAP", "Fiori Elements", "CDS Views", "OData", "Gateway", "RAP", "SAP BTP", "Git", "Jira"]
     }
@@ -101,12 +102,12 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
           <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
             Experiências Profissionais
           </h2>
-          
+
           <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
             {curriculoType === "sap" ? (
-              <>Desenvolvendo aplicações corporativas SAP modernas com <span className="font-black text-primary-600">Fiori Elements e SAPUI5</span></>
+              <>Desenvolvendo aplicações corporativas SAP com <span className="font-black text-primary-600">Fiori Elements e SAPUI5</span></>
             ) : (
-              <>Trajetória profissional com <span className="font-black text-primary-600">projetos desafiadores</span> e soluções inovadoras</>
+              <>Trajetória com <span className="font-black text-primary-600">projetos desafiadores</span> e soluções inovadoras</>
             )}
           </p>
         </motion.div>
@@ -132,12 +133,8 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                   <div className={`w-full md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}>
                     <div className="space-y-4 text-left">
                       <div>
-                        <h3 className="text-2xl font-black text-light-900 mb-1">
-                          {experience.company}
-                        </h3>
-                        <p className="text-lg font-black text-primary-600 mb-3">
-                          {experience.role}
-                        </p>
+                        <h3 className="text-2xl font-black text-light-900 mb-1">{experience.company}</h3>
+                        <p className="text-lg font-black text-primary-600 mb-3">{experience.role}</p>
                         <div className="flex flex-wrap items-center gap-4 text-sm text-light-600 font-semibold">
                           <span className="flex items-center gap-2">
                             <FaMapMarkerAlt className="w-3 h-3" />
@@ -151,9 +148,7 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                       </div>
 
                       <div className="space-y-3">
-                        <p className="text-xs font-black text-light-700 uppercase tracking-wide">
-                          Principais Atividades
-                        </p>
+                        <p className="text-xs font-black text-light-700 uppercase tracking-wide">Principais Atividades</p>
                         <ul className="space-y-2">
                           {experience.activities.map((activity, actIndex) => (
                             <li key={actIndex} className="flex items-start gap-3 text-light-600 leading-relaxed text-sm font-medium">
@@ -165,9 +160,7 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                       </div>
 
                       <div className="pt-2">
-                        <p className="text-xs font-black text-light-700 mb-2 uppercase tracking-wide">
-                          Tecnologias Utilizadas
-                        </p>
+                        <p className="text-xs font-black text-light-700 mb-2 uppercase tracking-wide">Tecnologias Utilizadas</p>
                         <div className="flex flex-wrap gap-2">
                           {experience.technologies.map((tech, techIndex) => (
                             <span

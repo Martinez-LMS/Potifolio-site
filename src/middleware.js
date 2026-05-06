@@ -30,7 +30,7 @@ export const config = {
     '/Leonardo%20M%20SAP.pdf',
     '/Leonardo Front.pdf',
     '/Leonardo%20Front.pdf',
-    '/Leonardo*',
+    '/Leonardo/:path*',
   ],
 };
 
