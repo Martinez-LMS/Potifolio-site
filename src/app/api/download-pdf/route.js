@@ -6,7 +6,12 @@ export async function GET(request) {
 
   if (filename === "Leonardo M SAP.pdf" || filename?.includes("SAP")) {
     return NextResponse.redirect(new URL("/download/sap", request.url));
-  } else if (filename === "Leonardo Front.pdf" || filename?.includes("Front")) {
+  } else if (
+    filename === "Leonardo Front.pdf" ||
+    filename === "Leonardo Front atual.pdf" ||
+    filename === "Leonardo Front atual.pdf.pdf" ||
+    filename?.includes("Front")
+  ) {
     return NextResponse.redirect(new URL("/download/front", request.url));
   }
 

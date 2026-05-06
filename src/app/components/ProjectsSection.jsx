@@ -58,6 +58,16 @@ const projectsData = [
     gitUrl: "https://github.com/Martinez-LMS/Farmacia",
     previewUrl: "https://github.com/Martinez-LMS/Farmacia",
   },
+  {
+    id: 6,
+    title: "W Festival",
+    description: "Landing de festival com streaming ao vivo, line-up, conteúdo exclusivo e Watch Again. React, Vite e Tailwind, com carrosséis e layout responsivo.",
+    image: "/images/W%20festival.jpeg",
+    gradient: "from-orange-600 to-rose-500",
+    tag: ["All", "Front"],
+    gitUrl: "https://github.com/Martinez-LMS/W-festiva",
+    previewUrl: "https://w-festiva.netlify.app/",
+  },
 ];
 
 const ProjectModal = ({ project, currentIndex, totalProjects, onNavigate, onClose }) => {
@@ -222,10 +232,10 @@ const ProjectsSection = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
+    <section id="projects" className="py-32 relative overflow-hidden bg-slate-100 dark:bg-slate-950 transition-colors duration-300">
       {/* Background decorators */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-600/10 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
@@ -236,16 +246,16 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="px-6 py-3 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-black tracking-widest inline-block mb-6">
+          <span className="px-6 py-3 bg-blue-500/15 dark:bg-blue-500/10 border border-blue-500/40 dark:border-blue-500/30 rounded-full text-primary-600 dark:text-blue-400 text-sm font-black tracking-widest inline-block mb-6">
             PROJETOS
           </span>
 
-          <h2 className="text-5xl lg:text-7xl font-black text-white mb-6">
+          <h2 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6">
             Meus <span className="gradient-text">Projetos</span>
           </h2>
 
-          <p className="text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto font-medium">
-            Projetos desenvolvidos com as mais <span className="font-black text-blue-400">modernas tecnologias</span> do mercado
+          <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto font-medium">
+            Projetos desenvolvidos com as mais <span className="font-black text-primary-600 dark:text-blue-400">modernas tecnologias</span> do mercado
           </p>
         </motion.div>
 

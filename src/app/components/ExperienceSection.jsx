@@ -78,7 +78,7 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
   const experiences = curriculoType === "sap" ? experiencesSAP : experiencesFront;
 
   return (
-    <section ref={ref} className="py-32 relative overflow-hidden bg-white" id="experience">
+    <section ref={ref} className="py-32 relative overflow-hidden bg-white dark:bg-slate-900 transition-colors duration-300" id="experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -99,11 +99,11 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
+          <h2 className="text-5xl lg:text-7xl font-black text-light-900 dark:text-slate-100 mb-6">
             Experiências Profissionais
           </h2>
 
-          <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
+          <p className="text-2xl lg:text-3xl text-light-600 dark:text-slate-300 leading-relaxed max-w-4xl mx-auto font-medium">
             {curriculoType === "sap" ? (
               <>Desenvolvendo aplicações corporativas SAP com <span className="font-black text-primary-600">Fiori Elements e SAPUI5</span></>
             ) : (
@@ -128,14 +128,14 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                 <div className={`flex flex-col md:flex-row md:items-start gap-6 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}>
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-xl transform md:-translate-x-1/2 z-10"></div>
+                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-slate-900 shadow-xl transform md:-translate-x-1/2 z-10"></div>
 
                   <div className={`w-full md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}>
                     <div className="space-y-4 text-left">
                       <div>
-                        <h3 className="text-2xl font-black text-light-900 mb-1">{experience.company}</h3>
-                        <p className="text-lg font-black text-primary-600 mb-3">{experience.role}</p>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-light-600 font-semibold">
+                        <h3 className="text-2xl font-black text-light-900 dark:text-slate-100 mb-1">{experience.company}</h3>
+                        <p className="text-lg font-black text-primary-600 dark:text-primary-400 mb-3">{experience.role}</p>
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-light-600 dark:text-slate-400 font-semibold">
                           <span className="flex items-center gap-2">
                             <FaMapMarkerAlt className="w-3 h-3" />
                             {experience.location}
@@ -148,10 +148,10 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                       </div>
 
                       <div className="space-y-3">
-                        <p className="text-xs font-black text-light-700 uppercase tracking-wide">Principais Atividades</p>
+                        <p className="text-xs font-black text-light-700 dark:text-slate-400 uppercase tracking-wide">Principais Atividades</p>
                         <ul className="space-y-2">
                           {experience.activities.map((activity, actIndex) => (
-                            <li key={actIndex} className="flex items-start gap-3 text-light-600 leading-relaxed text-sm font-medium">
+                            <li key={actIndex} className="flex items-start gap-3 text-light-600 dark:text-slate-300 leading-relaxed text-sm font-medium">
                               <span className="text-primary-500 font-black mt-1 flex-shrink-0">•</span>
                               <span>{activity}</span>
                             </li>
@@ -160,12 +160,12 @@ const ExperienceSection = ({ curriculoType = "front" }) => {
                       </div>
 
                       <div className="pt-2">
-                        <p className="text-xs font-black text-light-700 mb-2 uppercase tracking-wide">Tecnologias Utilizadas</p>
+                        <p className="text-xs font-black text-light-700 dark:text-slate-400 mb-2 uppercase tracking-wide">Tecnologias Utilizadas</p>
                         <div className="flex flex-wrap gap-2">
                           {experience.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="px-3 py-1.5 bg-primary-50 border border-primary-200 rounded-lg text-primary-700 font-bold text-xs hover:bg-primary-100 transition-colors duration-300"
+                              className="px-3 py-1.5 bg-primary-50 dark:bg-primary-900/40 border border-primary-200 dark:border-primary-700 rounded-lg text-primary-700 dark:text-primary-300 font-bold text-xs hover:bg-primary-100 dark:hover:bg-primary-900/60 transition-colors duration-300"
                             >
                               {tech}
                             </span>

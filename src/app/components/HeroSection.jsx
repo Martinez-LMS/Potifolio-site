@@ -74,7 +74,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-primary-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 border-2 border-primary-200 dark:border-primary-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="text-primary-700 font-black text-sm">Disponível para projetos</span>
@@ -86,7 +86,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-6xl sm:text-7xl lg:text-8xl font-black text-light-900 leading-[1.1]"
+                className="text-6xl sm:text-7xl lg:text-8xl font-black text-light-900 dark:text-slate-100 leading-[1.1]"
               >
                 <span className="block mb-4">Olá, eu sou</span>
                 <span className="block text-primary-500">
@@ -104,7 +104,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl lg:text-2xl text-light-600 leading-relaxed max-w-2xl font-medium"
+                className="text-xl lg:text-2xl text-light-600 dark:text-slate-300 leading-relaxed max-w-2xl font-medium"
                 key={curriculoType}
               >
                 {content.description.split(' ').map((word, i) =>
@@ -137,7 +137,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
               <motion.a
                 href={`/api/curriculo?type=${curriculoType}`}
                 onClick={handleDownloadCV}
-                className="group px-8 py-5 border-2 border-light-300 bg-white text-light-900 font-black text-lg rounded-2xl hover:border-primary-500 hover:bg-primary-50 hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+                className="group px-8 py-5 border-2 border-light-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-light-900 dark:text-slate-100 font-black text-lg rounded-2xl hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-slate-700 hover:shadow-xl transition-all duration-300 flex items-center gap-3"
               >
                 <DocumentArrowDownIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Baixar CV</span>
@@ -149,7 +149,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-3 gap-6 pt-6 border-t-2 border-light-300"
+              className="grid grid-cols-3 gap-6 pt-6 border-t-2 border-light-300 dark:border-slate-600"
             >
               {[
                 { number: "4+", label: "Anos de Experiência", icon: <FaStar className="w-6 h-6 text-yellow-500" /> },
@@ -164,10 +164,10 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   className="text-center group"
                 >
                   <div className="flex justify-center mb-2">{stat.icon}</div>
-                  <div className="text-3xl lg:text-4xl font-black text-light-900 mb-1 group-hover:text-primary-600 transition-colors duration-300">
+                  <div className="text-3xl lg:text-4xl font-black text-light-900 dark:text-slate-100 mb-1 group-hover:text-primary-600 transition-colors duration-300">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-light-600 font-bold">{stat.label}</div>
+                  <div className="text-sm text-light-600 dark:text-slate-400 font-bold">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -186,7 +186,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
               <motion.div
                 whileHover={{ scale: 1.02, rotate: 1 }}
                 transition={{ duration: 0.3 }}
-                className="relative bg-white rounded-3xl p-6 shadow-2xl border border-light-200"
+                className="relative bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-2xl border border-light-200 dark:border-slate-600"
               >
                 <motion.div
                   animate={{ rotateY: isFlipped ? 180 : 0 }}

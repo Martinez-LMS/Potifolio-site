@@ -10,8 +10,8 @@ const NavLink = ({ href, title }) => {
       href={href}
       className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-300 ${
         isActive
-          ? "text-primary-500 bg-primary-50 border-2 border-primary-500"
-          : "text-light-600 hover:text-primary-500 hover:bg-primary-50 border-2 border-transparent"
+          ? "text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-500/15 border-2 border-primary-500"
+          : "text-light-600 dark:text-slate-300 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-500/15 border-2 border-transparent"
       }`}
     >
       {title}

@@ -73,10 +73,10 @@ const ProjectCard = ({
 
         {/* Content */}
         <div className="p-7 space-y-4">
-          <h5 className="text-xl font-black text-white group-hover:text-blue-400 transition-colors duration-300">
+          <h5 className="text-xl font-black text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-blue-400 transition-colors duration-300">
             {title}
           </h5>
-          <p className="text-slate-400 leading-relaxed text-sm font-medium line-clamp-2">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm font-medium line-clamp-2">
             {description}
           </p>
         </div>

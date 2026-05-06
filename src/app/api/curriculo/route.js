@@ -14,8 +14,8 @@ export async function GET(request) {
     
     const curriculos = {
       front: {
-        file: "Leonardo Front.pdf",
-        filename: "Leonardo Front.pdf"
+        file: "Leonardo Front atual.pdf.pdf",
+        filename: "Leonardo Front atual.pdf",
       },
       sap: {
         file: "Leonardo M SAP.pdf",

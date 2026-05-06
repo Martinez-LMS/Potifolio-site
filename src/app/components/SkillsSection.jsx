@@ -15,7 +15,7 @@ const SkillsSection = ({ curriculoType = "front" }) => {
       icon: <FaLaptop className="w-8 h-8" />,
       skills: [
         { name: "React", icon: <FaReact className="w-7 h-7" />, color: "text-blue-500" },
-        { name: "Next.js", icon: <SiNextdotjs className="w-7 h-7" />, color: "text-black" },
+        { name: "Next.js", icon: <SiNextdotjs className="w-7 h-7" />, color: "text-black dark:text-white" },
         { name: "JavaScript", icon: <FaJs className="w-7 h-7" />, color: "text-yellow-500" },
         { name: "TypeScript", icon: <SiTypescript className="w-7 h-7" />, color: "text-blue-600" },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="w-7 h-7" />, color: "text-cyan-500" },
@@ -116,7 +116,7 @@ const SkillsSection = ({ curriculoType = "front" }) => {
   };
 
   return (
-    <section ref={ref} className="py-32 relative overflow-hidden bg-white" id="skills">
+    <section ref={ref} className="py-32 relative overflow-hidden bg-white dark:bg-slate-900 transition-colors duration-300" id="skills">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <motion.div
@@ -138,11 +138,11 @@ const SkillsSection = ({ curriculoType = "front" }) => {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
+          <h2 className="text-5xl lg:text-7xl font-black text-light-900 dark:text-slate-100 mb-6">
             Tecnologias & Ferramentas
           </h2>
 
-          <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
+          <p className="text-2xl lg:text-3xl text-light-600 dark:text-slate-300 leading-relaxed max-w-4xl mx-auto font-medium">
             {curriculoType === "sap" ? (
               <>Domínio em tecnologias <span className="font-black text-primary-600">SAP</span> e ferramentas essenciais para desenvolvimento de aplicações corporativas</>
             ) : (
@@ -164,7 +164,7 @@ const SkillsSection = ({ curriculoType = "front" }) => {
               key={category.title}
               variants={cardVariants}
               whileHover={{ y: -12, scale: 1.02 }}
-              className="group relative bg-white border-2 border-light-300 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden"
+              className="group relative bg-white dark:bg-slate-800 border-2 border-light-300 dark:border-slate-600 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden"
             >
               <div className="relative z-10">
                 <div className="flex items-center gap-6 mb-10">
@@ -172,8 +172,8 @@ const SkillsSection = ({ curriculoType = "front" }) => {
                     {category.icon}
                   </div>
                   <div>
-                    <h3 className="text-4xl font-black text-light-900 mb-1">{category.title}</h3>
-                    <p className="text-light-500 text-sm font-semibold">Tecnologias e ferramentas</p>
+                    <h3 className="text-4xl font-black text-light-900 dark:text-slate-100 mb-1">{category.title}</h3>
+                    <p className="text-light-500 dark:text-slate-400 text-sm font-semibold">Tecnologias e ferramentas</p>
                   </div>
                 </div>
 
@@ -186,12 +186,12 @@ const SkillsSection = ({ curriculoType = "front" }) => {
                       transition={{ duration: 0.4, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -6 }}
-                      className="group/skill flex flex-col items-center gap-3 p-6 bg-white border-2 border-light-300 rounded-2xl hover:border-primary-500 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                      className="group/skill flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-900 border-2 border-light-300 dark:border-slate-600 rounded-2xl hover:border-primary-500 hover:shadow-xl transition-all duration-300 cursor-pointer"
                     >
                       <div className={`${skill.color} group-hover/skill:scale-125 transition-transform duration-300`}>
                         {skill.icon}
                       </div>
-                      <span className="font-black text-light-900 group-hover/skill:text-primary-600 transition-colors duration-300 text-base text-center">
+                      <span className="font-black text-light-900 dark:text-slate-100 group-hover/skill:text-primary-600 transition-colors duration-300 text-base text-center">
                         {skill.name}
                       </span>
                     </motion.div>

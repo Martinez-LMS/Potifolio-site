@@ -13,7 +13,7 @@ const MenuOverlay = ({ links, isOpen, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex flex-col py-8 items-center"
+          className="fixed inset-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md z-50 flex flex-col py-8 items-center"
           onClick={onClose}
         >
           {/* Close Button */}
@@ -38,8 +38,8 @@ const MenuOverlay = ({ links, isOpen, onClose }) => {
               <span className="text-white font-bold text-xl">&lt;/&gt;</span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-light-900">Leonardo</h1>
-              <p className="text-sm text-light-500">Full-Stack Developer</p>
+              <h1 className="text-2xl font-bold text-light-900 dark:text-slate-100">Leonardo</h1>
+              <p className="text-sm text-light-500 dark:text-slate-400">Full-Stack Developer</p>
             </div>
           </motion.div>
 

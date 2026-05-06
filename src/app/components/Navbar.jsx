@@ -6,6 +6,7 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { motion } from "framer-motion";
 import { FaCode, FaRocket } from "react-icons/fa";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { title: "Sobre", path: "#about" },
@@ -34,7 +35,7 @@ const Navbar = () => {
       transition={{ duration: 0.8 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white border-b border-light-200 shadow-lg'
+          ? 'bg-white/95 dark:bg-slate-900/95 border-b border-light-200 dark:border-slate-700 shadow-lg backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
@@ -48,10 +49,10 @@ const Navbar = () => {
               <FaCode className="w-6 h-6" />
             </motion.div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-black text-light-900 group-hover:text-primary-500 transition-colors duration-300">
+              <h1 className="text-xl font-black text-light-900 dark:text-slate-100 group-hover:text-primary-500 transition-colors duration-300">
                 Leonardo Martinez
               </h1>
-              <p className="text-xs text-light-500 font-bold">Desenvolvedor Frontend</p>
+              <p className="text-xs text-light-500 dark:text-slate-400 font-bold">Desenvolvedor Frontend</p>
             </div>
           </Link>
 
@@ -68,7 +69,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
@@ -80,7 +82,8 @@ const Navbar = () => {
             </motion.a>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

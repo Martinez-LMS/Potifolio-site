@@ -75,7 +75,7 @@ const EmailSection = () => {
   ];
 
   return (
-    <section ref={ref} id="contact" className="py-32 relative overflow-hidden bg-white">
+    <section ref={ref} id="contact" className="py-32 relative overflow-hidden bg-white dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <motion.div
@@ -97,11 +97,11 @@ const EmailSection = () => {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl lg:text-7xl font-black text-light-900 mb-6">
+          <h2 className="text-5xl lg:text-7xl font-black text-light-900 dark:text-slate-100 mb-6">
             Entre em Contato
           </h2>
 
-          <p className="text-2xl lg:text-3xl text-light-600 leading-relaxed max-w-4xl mx-auto font-medium">
+          <p className="text-2xl lg:text-3xl text-light-600 dark:text-slate-300 leading-relaxed max-w-4xl mx-auto font-medium">
             Pronto para transformar sua ideia em realidade?
             <span className="block mt-4 font-black text-primary-600">
               Vamos criar algo incrível juntos!
@@ -119,8 +119,8 @@ const EmailSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-4xl font-black text-light-900 mb-4">Conecte-se Comigo</h3>
-              <p className="text-xl text-light-600 leading-relaxed mb-10 font-medium">
+              <h3 className="text-4xl font-black text-light-900 dark:text-slate-100 mb-4">Conecte-se Comigo</h3>
+              <p className="text-xl text-light-600 dark:text-slate-300 leading-relaxed mb-10 font-medium">
                 Siga-me nas redes sociais para acompanhar meus projetos e novidades.
               </p>
             </div>
@@ -167,7 +167,7 @@ const EmailSection = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-white border-2 border-light-300 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500">
+            <div className="bg-white dark:bg-slate-800 border-2 border-light-300 dark:border-slate-600 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500">
               {emailSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -183,8 +183,8 @@ const EmailSection = () => {
                   >
                     <CheckCircleIcon className="w-14 h-14 text-white" />
                   </motion.div>
-                  <h3 className="text-4xl font-black text-light-900 mb-4">Mensagem Enviada!</h3>
-                  <p className="text-xl text-light-600 font-medium">
+                  <h3 className="text-4xl font-black text-light-900 dark:text-slate-100 mb-4">Mensagem Enviada!</h3>
+                  <p className="text-xl text-light-600 dark:text-slate-300 font-medium">
                     Obrigado pelo contato. Responderei em breve!
                   </p>
                 </motion.div>
@@ -201,7 +201,7 @@ const EmailSection = () => {
                   )}
 
                   <div>
-                    <label htmlFor="email" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
+                    <label htmlFor="email" className="block text-lg font-black text-light-900 dark:text-slate-100 mb-3 flex items-center gap-2">
                       <EnvelopeIcon className="w-5 h-5 text-primary-600" />
                       Seu Email
                     </label>
@@ -210,13 +210,13 @@ const EmailSection = () => {
                       type="email"
                       id="email"
                       required
-                      className="w-full px-6 py-4 bg-light-50 border-2 border-light-300 rounded-2xl text-light-900 placeholder-light-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50"
+                      className="w-full px-6 py-4 bg-light-50 dark:bg-slate-900 border-2 border-light-300 dark:border-slate-600 rounded-2xl text-light-900 dark:text-slate-100 placeholder-light-500 dark:placeholder-slate-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50"
                       placeholder="seu@email.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
+                    <label htmlFor="subject" className="block text-lg font-black text-light-900 dark:text-slate-100 mb-3 flex items-center gap-2">
                       <DocumentTextIcon className="w-5 h-5 text-primary-600" />
                       Assunto
                     </label>
@@ -225,13 +225,13 @@ const EmailSection = () => {
                       type="text"
                       id="subject"
                       required
-                      className="w-full px-6 py-4 bg-light-50 border-2 border-light-300 rounded-2xl text-light-900 placeholder-light-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50"
+                      className="w-full px-6 py-4 bg-light-50 dark:bg-slate-900 border-2 border-light-300 dark:border-slate-600 rounded-2xl text-light-900 dark:text-slate-100 placeholder-light-500 dark:placeholder-slate-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50"
                       placeholder="Comece dizendo Olá"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-lg font-black text-light-900 mb-3 flex items-center gap-2">
+                    <label htmlFor="message" className="block text-lg font-black text-light-900 dark:text-slate-100 mb-3 flex items-center gap-2">
                       <UserIcon className="w-5 h-5 text-primary-600" />
                       Mensagem
                     </label>
@@ -239,7 +239,7 @@ const EmailSection = () => {
                       name="message"
                       id="message"
                       rows={6}
-                      className="w-full px-6 py-4 bg-light-50 border-2 border-light-300 rounded-2xl text-light-900 placeholder-light-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50 resize-none"
+                      className="w-full px-6 py-4 bg-light-50 dark:bg-slate-900 border-2 border-light-300 dark:border-slate-600 rounded-2xl text-light-900 dark:text-slate-100 placeholder-light-500 dark:placeholder-slate-500 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-primary-500/50 resize-none"
                       placeholder="Vamos falar sobre..."
                       required
                     />
@@ -252,7 +252,7 @@ const EmailSection = () => {
                     whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                     className={`w-full font-black py-6 px-10 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-2xl hover:shadow-3xl ${
                       isSubmitting
-                        ? "bg-light-400 text-light-700 cursor-not-allowed"
+                        ? "bg-light-400 dark:bg-slate-600 text-light-700 dark:text-slate-300 cursor-not-allowed"
                         : "bg-primary-500 hover:bg-primary-600 text-white"
                     }`}
                   >

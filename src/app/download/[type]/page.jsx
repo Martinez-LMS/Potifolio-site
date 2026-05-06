@@ -20,7 +20,7 @@ export default function DownloadPage() {
         
         const link = document.createElement("a");
         link.href = url;
-        link.download = type === "sap" ? "Leonardo M SAP.pdf" : "Leonardo Front.pdf";
+        link.download = type === "sap" ? "Leonardo M SAP.pdf" : "Leonardo Front atual.pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
