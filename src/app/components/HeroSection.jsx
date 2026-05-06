@@ -201,7 +201,7 @@ const HeroSection = ({ curriculoType = "front" }) => {
                   >
                     <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-primary-200 shadow-xl">
                       <Image
-                        src="/images/Perfil nova.jpg"
+                        src="/images/perfil-leonardo.jpg"
                         alt="Leonardo - Desenvolvedor Frontend"
                         className="w-full h-full object-cover"
                         width={500}
